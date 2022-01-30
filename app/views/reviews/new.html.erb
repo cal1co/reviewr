@@ -1,0 +1,27 @@
+<h3>NEW REVIEW</h3>
+
+<script>
+const textAreaGrow = function(textArea){
+    if (textArea.clientHeight < textArea.scrollHeight){
+    textArea.style.height = textArea.scrollHeight + "px";
+  }
+}
+</script>
+<%= form_with model: @review, local:true do |f| %>
+<div class="review-form">
+<div class="article-title">
+<%= f.text_field :title, :maxlength => 35, placeholder:'article title'%>
+</div>
+<div class="input">
+<%= f.text_area :rating, rows: 1, :maxlength => 280, placeholder:'type in me', :onkeyup => "textAreaGrow(this)"%>
+</div>
+<%# UNTIL USERS WORK %>
+
+<%= f.text_field :user_id, placeholder:'user id' %>
+<%= f.submit %>
+</div>
+
+
+
+
+<% end %>

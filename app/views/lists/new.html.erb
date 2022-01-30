@@ -1,0 +1,19 @@
+NEW LIST 
+
+CURRENT LIST:
+<%# selected reviews are added here %>
+
+
+REVIEWS:
+<% @reviews.each do |r| %>
+<li>
+<%= r.id %>
+<%= r.title %>
+    @<%= r.user.username %>
+published: 
+<%= r.created_at.strftime("%H:%M %Y-%m-%d") %>
+</li>
+<%= link_to "ADD TO LIST", review_path(r.id)%>
+
+
+<% end %>
