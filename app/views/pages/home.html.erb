@@ -1,6 +1,8 @@
-<h1>Re:view-r</h1>
+
 <%= link_to "COMPOSE", new_review_path %>
 <%= link_to "LIST", new_list_path %>
+
+
 <%# Sorted by latest %>
 <% @reviews.each do |r| %>
 <div class="container">
@@ -25,7 +27,9 @@
             </p>
         </div>
     <div class="edit">
+        <% if @current_user.id == r.user.id%>
         <%= link_to "DELETE", review_path(r.id), method:'delete' %>
+    <% end %>
     </div>
 </div>
 <% end %>
@@ -69,3 +73,5 @@
 </div>
 
 <% end %>
+
+

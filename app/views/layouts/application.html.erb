@@ -10,6 +10,19 @@
   </head>
 
   <body>
+  <h1>Re:view-r</h1>
+
+    <% if @current_user.present? %>
+      welcome, <%= @current_user.username %>
+      |
+      <%= link_to 'LOGOUT', login_path, method: 'delete' %>
+
+    <% else %>
+      <%= link_to 'SIGN UP', '/does-not-exist-yet' %>
+
+    <% end %>
+    
+    
     <%= yield %>
   </body>
 </html>

@@ -1,11 +1,15 @@
 class ReviewsController < ApplicationController
 
+    before_action :check_if_logged_in, only: [:new, :create]
+    # except: is opposite of only: 
     def new
         @review = Review.new
     end
 
     def create
-        Review.create review_params
+        review = Review.create review_params
+        review.user_id = @current_user.id
+        review.save
         redirect_to home_path
     end
 

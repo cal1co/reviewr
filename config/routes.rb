@@ -4,5 +4,11 @@ Rails.application.routes.draw do
 
   get '/home' => 'pages#home'
 
-  resources :reviews, :lists
+  get '/login' => 'session#new'         # login form
+  post '/login' => 'session#create'     # performs login, redirect
+  delete '/login' => 'session#destroy'  # logout, redirect 
+
+
+  resources :reviews, :lists, :users
+
 end
