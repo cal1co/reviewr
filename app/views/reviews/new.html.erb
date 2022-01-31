@@ -12,11 +12,16 @@ const textAreaGrow = function(textArea){
 // const maxLimit = function(){
 // }
 </script>
-
+<% if @review.errors.any?  %>
+<strong>ERROR:</strong>
+    <% @review.errors.full_messages.each do |e|  %>
+        <%= e %>
+    <% end %>
+<% end %>
 <%= form_with model: @review, local:true do |f| %>
 <div class="review-form">
 <div class="article-title">
-<%= f.text_field :title, :maxlength => 35, placeholder:'article title', autocomplete:"off" %>
+<%= f.text_field :title, :maxlength => 35, :minlength => 1, placeholder:'article title', autocomplete:"off" %>
 <%# :onkeyup => "maxLimit(this)" %>
 </div>
 <div class="input">

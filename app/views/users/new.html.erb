@@ -1,0 +1,10 @@
+<h1>CREATE A NEW ACCOUNT</h1>
+
+<%= form_with model: @user, local:true do |f| %>
+
+<%= f.text_field :username, :maxlength => 10, placeholder:'username' %>
+<%= f.text_field :email, placeholder:'email' %>
+<%= f.password_field :password, placeholder:'password' %>
+
+<%= f.submit%>
+<% end %>

@@ -1,9 +1,6 @@
 *{
     margin:0;
 }
-body{
-    /* background: slateblue; */
-}
 .container{
     position:relative;
     width:615px;
@@ -73,4 +70,10 @@ textarea::-webkit-scrollbar {
 } */
 .create_time{
       margin-top:5px
+}
+
+a{
+    text-decoration:none;
+    color:black;
+    font-weight:600;
 }
