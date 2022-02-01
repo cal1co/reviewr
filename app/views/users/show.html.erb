@@ -1,5 +1,7 @@
 
-<h1><%= @userinfo.username%>'s profile</h1>
+
+<div class="profile-header">
+<h1 class="user-page"><%= @userinfo.username%>'s profile</h1>
 
 <% if @userinfo.image == nil %>
    <% @userinfo.update! image: @userimg%>
@@ -11,7 +13,8 @@
 
 <% end %>
 
-<h2>Recent posts from this user:</h2>
+<h2 class="user-post">Recent posts from this user:</h2>
+</div>
 
 
 <%# TURN THIS INTO A FORM!! %>

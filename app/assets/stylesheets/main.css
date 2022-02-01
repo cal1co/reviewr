@@ -84,3 +84,10 @@ a{
     max-width: 100px;
 
 }
+.profile-header{
+    /* make into a grid */
+}
+.user-page, .user-post, .profile-page-image{
+    display:flex;
+    justify-content: center;
+}
