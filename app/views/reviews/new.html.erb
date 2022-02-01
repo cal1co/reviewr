@@ -1,9 +1,10 @@
 
 <% if @current_user.present? %>
-<%= @current_user.id %>
+
 <h3>NEW REVIEW</h3>
 
 <script>
+
 const textAreaGrow = function(textArea){
     if (textArea.clientHeight < textArea.scrollHeight){
     textArea.style.height = textArea.scrollHeight + "px";
@@ -11,6 +12,7 @@ const textAreaGrow = function(textArea){
 }
 // const maxLimit = function(){
 // }
+
 </script>
 <% if @review.errors.any?  %>
 <strong>ERROR:</strong>
