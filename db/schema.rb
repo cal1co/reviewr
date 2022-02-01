@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_052758) do
+ActiveRecord::Schema.define(version: 2022_02_01_082251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "review_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_likes_on_review_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "lists", force: :cascade do |t|
     t.text "title"
@@ -43,6 +52,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_052758) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.integer "likes", default: 0
+    t.string "like_status"
   end
 
   create_table "reviews_lists", force: :cascade do |t|
@@ -57,6 +68,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_052758) do
     t.text "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes"
   end
 
   create_table "users_lists", force: :cascade do |t|
@@ -64,4 +76,6 @@ ActiveRecord::Schema.define(version: 2022_02_01_052758) do
     t.integer "list_id"
   end
 
+  add_foreign_key "likes", "reviews"
+  add_foreign_key "likes", "users"
 end

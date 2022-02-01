@@ -5,7 +5,7 @@
 
 .container{
     position:relative;
-    width:615px;
+    width:627px;
     margin:auto;
     display:grid;
     justify-content: center;
@@ -15,27 +15,34 @@
     /* overflow:hidden; */
     /* text-overflow:ellipsis; */
     grid-auto-columns: 1fr; 
-    grid-template-columns: 192px 134px 134px 134px; 
-    grid-template-rows: 28px fit-content(100%) 30px; 
+    grid-template-columns: 75px 50px 231px 134px 134px; 
+    grid-template-rows: 28px fit-content(100%) 35px 40px; 
     border: 3px solid black;
     /* border-radius:10px; */
     /* background:rgba(255, 255, 255, 0.116); */
     gap: 0px 0px; 
     margin-bottom:5px;
     grid-template-areas: 
-    "title title user edit"
-    "content content content content"
-    "create_time create_time create_time create_time"; 
+    "title title title user edit"
+    "content content content content content"
+    "create_time create_time create_time create_time create_time"
+    "up count down down down"; 
     }
     .title { grid-area: title; }
     .user { grid-area: user; }
     .created_time { grid-area: create_time;}    
     .content { grid-area: content; }
     .edit { grid-area: edit;}
-
+    .count { grid-area: count;}
+    .up { grid-area: up;}
 .content{
     font-size: 16px;
     margin-bottom:5px;
+}
+.count, .up{
+    margin-top:5px;
+    display:flex;
+    justify-content: center;
 }
 
 .title{

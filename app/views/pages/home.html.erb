@@ -25,6 +25,20 @@
             <%= r.created_at.strftime("%H:%M, %Y-%m-%d") %>
             </p>
         </div>
+    <div class = "up">
+        <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
+        <% if pre_like %>
+        <%= button_to 'Unlike', review_like_path(r.id, pre_like), method: :delete %>
+        <% else %>
+        <%= button_to 'Like', review_likes_path(r.id), method: :post %>
+        <% end %>
+    </div>
+
+        <div class="count">
+            <p>
+            <%= r.likes.count %> 
+            </p>
+        </div>
     <div class="edit">
         <% if @current_user.id == r.user.id%>
         <%= link_to "DELETE", review_path(r.id), method:'delete' %>

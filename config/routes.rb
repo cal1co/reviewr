@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   # get '/user/:id' => 'users#show' 
   get '/users/create'
   get '/users/destroy'
-
-  resources :reviews, :lists, :users
+  
+  resources :lists, :users, :reviews do 
+    resources :likes
+  end
 
 end
