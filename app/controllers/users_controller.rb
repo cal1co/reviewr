@@ -30,6 +30,8 @@ class UsersController < ApplicationController
 
   def show
     @user = @current_user
+    @userinfo = User.find params[:id]
+    @userimg = Identicon.data_url_for @userinfo.username, 400
   end
 
   private

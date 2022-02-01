@@ -1,2 +1,13 @@
-<%= @user.image%>
-<%= @user.username %>
+
+<h1><%= @userinfo.username%>'s profile</h1>
+
+<% if @userinfo.image == nil %>
+   <% @userinfo.update! image: @userimg%>
+
+<% else %>
+    <div class="profile-page-image">
+        <%= image_tag @userinfo.image %>
+    </div>
+
+<% end %>
+

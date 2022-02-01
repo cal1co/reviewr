@@ -2,10 +2,9 @@
 <%= link_to "COMPOSE", new_review_path %>
 <%= link_to "LIST", new_list_path %>
 
-
 <%# Sorted by latest %>
 <% @reviews.each do |r| %>
-<div class="container" draggable="true">
+<div class="container">
         <div class="title">
             <p>
             <%= r.title %>
@@ -13,7 +12,7 @@
         </div>
         <div class="user">
         <p>
-            @<%= r.user.username %>
+            @<%= link_to r.user.username, user_path(r.user.id) %>
         </p>
         </div>
         <div class="content">
