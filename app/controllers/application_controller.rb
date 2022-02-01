@@ -18,13 +18,14 @@ class ApplicationController < ActionController::Base
 
         if session[:user_id].present?
             @current_user = User.find_by id: session[:user_id]
+            
         end
         
         # if we did get nil (no such user) from the above query,
         # then delete the session (since the ID is invalid)
         session[:user_id] = nil unless @current_user.present? 
-
-    
+        
+        
     end 
 
     def check_if_logged_in
@@ -33,5 +34,7 @@ class ApplicationController < ActionController::Base
             redirect_to login_path
         end
     end # check_if_logged_in
+
+        
 
 end # class ApplicationController

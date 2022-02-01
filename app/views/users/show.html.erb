@@ -40,6 +40,7 @@
             <%= r.created_at.strftime("%H:%M, %Y-%m-%d") %>
             </p>
         </div>
+
     <div class = "up">
         <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
         <% if pre_like %>
