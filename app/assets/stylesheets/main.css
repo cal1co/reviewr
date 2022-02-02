@@ -2,7 +2,16 @@
     margin:0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
-
+.profile-header{
+    position:relative;
+    justify-content:center;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+}
 .head{
     position:relative;
     width:100%;

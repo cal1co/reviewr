@@ -3,18 +3,18 @@
 <div class="profile-header">
 <h1 class="user-page"><%= @userinfo.username%>'s profile</h1>
 
-<% if @userinfo.image == nil %>
-   <% @userinfo.update! image: @userimg%>
+    <% if @userinfo.image == nil %>
+    <% @userinfo.update! image: @userimg%>
 
-<% else %>
-    <div class="profile-page-image">
-        <%= image_tag @userinfo.image %>
-    </div>
+    <% else %>
+        <div class="profile-page-image">
+            <%= image_tag @userinfo.image %>
+        </div>
 
-<% end %>
+    <% end %>
 
-<h2 class="user-post">Recent posts from this user:</h2>
-</div>
+    <h2 class="user-post">Recent posts from this user:</h2>
+
 
 
 <%# TURN THIS INTO A FORM!! %>
@@ -63,3 +63,4 @@
 </div>
 <% end %>
 
+</div>

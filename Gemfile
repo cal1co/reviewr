@@ -57,3 +57,5 @@ end
 gem 'pry-rails'
 
 gem 'identicon'
+
+gem 'cloudinary'
