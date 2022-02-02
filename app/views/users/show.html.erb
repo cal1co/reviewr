@@ -8,14 +8,19 @@
 
     <% else %>
         <div class="profile-page-image">
-            <%= image_tag @userinfo.image %>
+            <%= cl_image_tag @userinfo.image %>
         </div>
 
     <% end %>
 
     <h2 class="user-post">Recent posts from this user:</h2>
+<% if @current_user.present? %>
+    <% if @current_user.id == @userinfo.id %>
+        <%= button_to "preferences", edit_user_path(@current_user) %>
+        <%# <%= button_to "user likes", user_like_path(@userinfo) %> 
+    <% end %>
 
-
+    <% end %>
 
 <%# TURN THIS INTO A FORM!! %>
 <% @userinfo.reviews.each do |r| %>
@@ -44,9 +49,9 @@
     <div class = "up">
         <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
         <% if pre_like %>
-        <%= button_to 'Unlike', review_like_path(r.id, pre_like), method: :delete %>
+            <%= button_to 'Unlike', review_like_path(r.id, pre_like), method: :delete %>
         <% else %>
-        <%= button_to 'Like', review_likes_path(r.id), method: :post %>
+            <%= button_to 'Like', review_likes_path(r.id), method: :post %>
         <% end %>
     </div>
 
@@ -56,8 +61,11 @@
             </p>
         </div>
     <div class="edit">
+    <% if @current_user.present? %>
+
         <% if @current_user.id == r.user.id%>
-        <%= link_to "DELETE", review_path(r.id), method:'delete' %>
+            <%= link_to "DELETE", review_path(r.id), method:'delete' %>
+        <% end %>
     <% end %>
     </div>
 </div>

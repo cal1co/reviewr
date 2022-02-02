@@ -1,0 +1,11 @@
+<h1>EDIT YOUR ( @<%= @current_user.username %> ) PROFILE!!</h1>
+
+<h1><%= @user.id %></h1>
+
+<%= form_with model: @user, local:true, html:{multipart:true} do |f| %>
+
+    <%= f.file_field :image, :required => 'required' %>
+
+    <%= f.submit %>
+
+<% end %>

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'  # logout, redirect 
   
   get '/users/new' => 'users#new'
-  # get '/user/:id' => 'users#show' 
+  post '/users/:id/edit' => 'users#edit' 
+  post '/users/:id/likes/:id' => 'likes#show'
   get '/users/create'
   get '/users/destroy'
   

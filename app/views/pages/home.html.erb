@@ -7,7 +7,7 @@
 <div class="container">
         <div class="title">
             <p>
-            <%= r.title %>
+            <%= link_to r.title, review_path(r.id) %>
             </p>
         </div>
         <div class="user">

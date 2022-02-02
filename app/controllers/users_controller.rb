@@ -29,10 +29,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find params[:id]
-    user.update! user_params
+    # @user = User.find params[:id]
+    # raise 'hell'
+
+    if params[:user][:image].present?
+      response = Cloudinary::Uploader.upload(params[:user][:image])
+      @current_user.image=response['public_id']
+    end
+
+    @current_user.save
+    # @user.update! user_params
     redirect_to user_path(params[:id])
-  end
+    
+  end # edit 
 
   def destroy
   end

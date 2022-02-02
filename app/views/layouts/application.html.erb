@@ -24,7 +24,7 @@
       <% if @current_user.image == nil %>
         <% @current_user.update! image: @userimg%>
       <% else %>
-        <%= link_to image_tag(@current_user.image, width:"25"), user_path(@current_user.id) %>
+        <%= link_to cl_image_tag(@current_user.image, width:"25"), user_path(@current_user.id) %>
       <% end %>
       |
       <%= link_to 'LOGOUT', login_path, method: 'delete' %>
