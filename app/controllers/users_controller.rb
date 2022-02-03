@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       @userimg = Identicon.data_url_for @user.username, 400
       @user.update! image: @userimg
 
-      @imageset = false 
+      @user.setimage = false 
       # raise 'hell'
       redirect_to home_path
       
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @current_user.bio = params[:user][:bio]
     @current_user.birthday = params[:user][:birthday]
 
-    @imageset = true
+    @current_user.setimage = true 
     # raise 'hell'
 
     if params[:user][:image].present?

@@ -3,9 +3,8 @@ class ReviewsController < ApplicationController
     before_action :check_if_logged_in, only: [:new, :create]
     # except: is opposite of only: 
     def new
-        raise 'hell'
         @review = Review.new
-        @comment = @post.comment.new
+        # @comment = @review.comment.new
     end
 
     def create

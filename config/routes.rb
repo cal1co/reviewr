@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/users/:id/likes/:id' => 'likes#show'
   post '/users/:id/follow', to: "users#follow", as: "follow_user"
   post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+  get '/users/:id/following' => 'following#show'
   get '/users/create'
   get '/users/destroy'
   
@@ -20,7 +21,9 @@ Rails.application.routes.draw do
   resources :comments
   
   resources :lists
-  resources :users
+  resources :users do
+    resources :followers, :following
+  end
 
 
   resources :reviews do 
