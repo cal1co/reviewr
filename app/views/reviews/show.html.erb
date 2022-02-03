@@ -4,14 +4,16 @@
 
 
 <h3>COMMENTS:</h3>
+<% unless @review.comments == nil %>
+    <% @review.comments.each do |e| %>
 
-<% @review.comments.each do |e| %>
+    <h2>
+    <%= e.reply %>
+    </h2>
 
-<h2>
-<%= e.reply %>
-</h2>
-
+    <% end %>
 <% end %>
+
 
 <%= form_with model: [@review, @review.comments.build], local:true do |f| %>
 
