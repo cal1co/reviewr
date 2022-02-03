@@ -5,6 +5,7 @@
 <%# Sorted by latest %>
 <% @reviews.each do |r| %>
 <div class="container">
+<%# <div class=".col-md-"></div> %>
         <div class="title">
             <p>
             <%= link_to r.title, review_path(r.id) %>
@@ -49,6 +50,7 @@
         <%= link_to "DELETE", review_path(r.id), method:'delete' %>
     <% end %>
     </div>
+    <%# <div class=".col-md-"></div> %>
 </div>
 <% end %>
 
