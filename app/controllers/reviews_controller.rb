@@ -36,6 +36,7 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find params[:id]
+        # @user = User.find_by id:e.user_id
     end
 
     def destroy

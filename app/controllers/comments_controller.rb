@@ -15,20 +15,19 @@ class CommentsController < ApplicationController
           @comment.save
 
         if @comment.update comment_params
-          redirect_to home_path
+          redirect_to review_path(@post.id)
         else  
           render :new
         end
       end
         
         def destroy
-            if !(already_liked?)
-              flash[:notice] = "Cannot unlike"
-            else
-              @like.destroy
-            end
-            redirect_to home_path
+
+        Comment.destroy params[:id]
+            redirect_to review_path(@post.id)
         end
+
+
         def find_like
             @post = Review.find(params[:review_id])
             @like = @post.likes.find(params[:id])

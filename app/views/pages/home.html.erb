@@ -13,7 +13,7 @@
         </div>
         <div class="user">
         <p>
-            @<%= link_to r.user.username, user_path(r.user.id) %>
+            <%= link_to '@' + r.user.username.to_s, user_path(r.user.id) %>
         </p>
         </div>
         <div class="content">
@@ -34,9 +34,9 @@
     <div class = "up">
         <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
         <% if pre_like %>
-        <%= button_to 'Unlike', review_like_path(r.id, pre_like), method: :delete %>
+        <%= button_to '', review_like_path(r.id, pre_like), method: :delete, class:"likebutt btn btn-danger" %>
         <% else %>
-        <%= button_to 'Like', review_likes_path(r.id), method: :post %>
+        <%= button_to '', review_likes_path(r.id), method: :post, class:"likebutt btn btn-outline-danger" %>
         <% end %>
     </div>
 

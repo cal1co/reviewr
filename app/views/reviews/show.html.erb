@@ -1,23 +1,51 @@
-<h1>this is showing <%= @review.title %></h1>
-
-<h3>maybe add article field for reviews?</h3>
 
 
-<h3>COMMENTS:</h3>
-<% unless @review.comments == nil %>
-    <% @review.comments.each do |e| %>
+<div class="container show">
+    <div class="title">
+        <%= @review.title %>
+    </div>
 
-    <h2>
-    <%= e.reply %>
-    </h2>
+    <%# <h3>maybe add article field for reviews?</h3> %>
+    <div class="content">
+        <%=@review.rating%>
+    </div>
+</div>
+
+
+
+
+    <% unless @review.comments == nil %>
+        
+        
+        
+        <% @review.comments.each do |e| %>
+
+        <div class="comment">
+        <p>
+        <% @user = User.find_by! id: e.user_id %>
+
+            <div class="col comment-user align-self-center">
+                <%= link_to '@' + @user.username.to_s, user_path(@user.id) %>:
+            </div>
+
+            <div class="col comment-reply align-self-center">
+                <%= e.reply %>
+            </div>
+        </p>
+        </div>
+        
+        <%# <%= link_to "DELETE", comment_path(e.id), method:'delete' %> 
+        <% end %>
 
     <% end %>
-<% end %>
-
 
 <%= form_with model: [@review, @review.comments.build], local:true do |f| %>
-
-    <%= f.text_area :reply, :maxlength => 140, placeholder:'Write your reply' %>
+    <div class=""> </div>
+    <div class="comment-input">
+        <%= f.text_area :reply, :maxlength => 140, placeholder:'write a reply' %>
+    </div>
     <%= f.submit %>
 
 <% end %>
+
+  

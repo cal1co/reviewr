@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
     has_many :reviews, dependent: :destroy
     has_many :likes, dependent: :destroy
-
+    has_many :comments, dependent: :destroy
 
 
     has_and_belongs_to_many :lists
