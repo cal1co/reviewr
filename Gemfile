@@ -59,3 +59,6 @@ gem 'pry-rails'
 gem 'identicon'
 
 gem 'cloudinary'
+
+gem 'bootstrap'
+gem 'jquery-rails'

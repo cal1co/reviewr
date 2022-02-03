@@ -13,10 +13,18 @@ class ReviewsController < ApplicationController
 
         @review = Review.new review_params 
         @review.user_id = @current_user.id
-        @review.save 
+        
+        if params[:review][:image].present?
+            response = Cloudinary::Uploader.upload(params[:review][:image])
+            @review.image=response['public_id']
+        end
+        raise 'hell'
+        
+        # @review.save 
 
         
         if @review.update review_params
+        # if @review.save review_params
             redirect_to home_path
         else
             render :new
@@ -35,7 +43,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params # !!!!!
-        params.require(:review).permit(:title,:image,:strength,:weakness,:user_id,:rating)
+        params.require(:review).permit(:title,:strength,:weakness,:user_id,:rating)
       end 
 
     end

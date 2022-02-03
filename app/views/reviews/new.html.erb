@@ -5,33 +5,35 @@
 
 <script>
 
-const textAreaGrow = function(textArea){
-    if (textArea.clientHeight < textArea.scrollHeight){
-    textArea.style.height = textArea.scrollHeight + "px";
-  }
-}
-// const maxLimit = function(){
-// }
+    const textAreaGrow = function(textArea){
+        if (textArea.clientHeight < textArea.scrollHeight){
+        textArea.style.height = textArea.scrollHeight + "px";
+    }
+    }
+    // const maxLimit = function(){
+    // }
 
 </script>
 <% if @review.errors.any?  %>
-<strong>ERROR:</strong>
+    <strong>ERROR:</strong>
     <% @review.errors.full_messages.each do |e|  %>
         <%= e %>
     <% end %>
 <% end %>
-<%= form_with model: @review, local:true do |f| %>
-<div class="review-form">
-<div class="article-title">
-<%= f.text_field :title, :maxlength => 35, :minlength => 1, placeholder:'article title', autocomplete:"off" %>
-<%# :onkeyup => "maxLimit(this)" %>
-</div>
-<div class="input">
-<%= f.text_area :rating, rows: 1, :maxlength => 280, placeholder:'type in me', :onkeyup => "textAreaGrow(this)"%>
-</div>
-<%# UNTIL USERS WORK %>
-<%= f.submit %>
-</div>
+<%= form_with model: @review, local:true, html:{multipart:true} do |f| %>
+    <div class="review-form">
+        <div class="article-title">
+            <%= f.text_field :title, :maxlength => 35, :minlength => 1, placeholder:'article title', autocomplete:"off" %>
+        <%# :onkeyup => "maxLimit(this)" %>
+        </div>
+        <div class="input">
+            <%= f.text_area :rating, rows: 1, :maxlength => 280, placeholder:'type in me', :onkeyup => "textAreaGrow(this)"%>
+        </div>
+        <div class="review-image"> 
+            <%= f.file_field :image %>
+        </div>
+        <%= f.submit %>
+    </div>
 
 <% end %>
 

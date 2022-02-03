@@ -19,6 +19,11 @@
         <p>
             <%= r.rating %>
         </p>
+         <% unless r.image == nil %>
+        <div class="post-image">
+            <%= cl_image_tag r.image %>
+        </div>
+        <% end %>
         </div>
         <div class="create_time">
             <p>

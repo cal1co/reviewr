@@ -31,6 +31,10 @@ class UsersController < ApplicationController
   def update
     # @user = User.find params[:id]
     # raise 'hell'
+    @current_user.bio = params[:user][:bio]
+    @current_user.birthday = params[:user][:birthday]
+    @imageset = true
+    # raise 'hell'
 
     if params[:user][:image].present?
       response = Cloudinary::Uploader.upload(params[:user][:image])

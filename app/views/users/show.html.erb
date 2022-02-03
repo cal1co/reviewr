@@ -4,15 +4,30 @@
 <h1 class="user-page"><%= @userinfo.username%>'s profile</h1>
 
     <% if @userinfo.image == nil %>
-    <% @userinfo.update! image: @userimg%>
-
+        <% @userinfo.update! image: @userimg%>
+        <% @imageset = false  %>
+        <% raise 'hell' %>
     <% else %>
         <div class="profile-page-image">
-            <%= cl_image_tag @userinfo.image %>
+        <% if @imageset = true %>
+            <%= cl_image_tag(@userinfo.image, default_image:@userimg) %>
+          <% else %>
+            <%= image_tag @userinfo.image %>
+        <% end %>
         </div>
-
     <% end %>
 
+<% if @userinfo.bio.present?  %>
+<div class="userbio">
+    <%= @userinfo.bio %>
+</div>
+<% end %>
+
+<% if @userinfo.birthday.present?  %>
+<div class="userbirth">
+    <%= @userinfo.birthday %>
+</div>
+<% end %>
     <h2 class="user-post">Recent posts from this user:</h2>
 <% if @current_user.present? %>
     <% if @current_user.id == @userinfo.id %>

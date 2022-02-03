@@ -14,8 +14,14 @@ Rails.application.routes.draw do
   get '/users/create'
   get '/users/destroy'
   
-  resources :lists, :users, :reviews do 
-    resources :likes
+  post '/reviews/:id' => 'reviews#show'
+
+  resources :lists, :users
+
+  resources :reviews do 
+    resources :likes, :comments
   end
+
+
 
 end
