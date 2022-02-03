@@ -11,13 +11,16 @@ Rails.application.routes.draw do
   get '/users/new' => 'users#new'
   post '/users/:id/edit' => 'users#edit' 
   post '/users/:id/likes/:id' => 'likes#show'
+  post '/users/:id/follow', to: "users#follow", as: "follow_user"
+  post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
   get '/users/create'
   get '/users/destroy'
   
   post '/reviews/:id' => 'reviews#show'
   resources :comments
   
-  resources :lists, :users
+  resources :lists
+  resources :users
 
 
   resources :reviews do 

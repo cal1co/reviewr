@@ -56,6 +56,18 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def follow
+    @user = User.find(params[:id])
+    @current_user.following << @user
+    redirect_back(fallback_location: user_path(@user))
+  end
+  
+  def unfollow
+    @user = User.find(params[:id])
+    Follow.find_by(follower_id: @current_user.id, followed_id:@user.id).destroy
+    # @current_user.following.find_by(followed_id: @user.id).destroy
+    redirect_back(fallback_location: user_path(@user))
+  end
 
   def show
     @user = @current_user

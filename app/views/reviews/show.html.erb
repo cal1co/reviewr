@@ -1,13 +1,17 @@
+<div class="darkmode"></div>
 
-
-<div class="container show">
+<div class="reviewblock show">
     <div class="title">
+<p>
         <%= @review.title %>
+</p>
     </div>
 
     <%# <h3>maybe add article field for reviews?</h3> %>
     <div class="content">
+    <p>
         <%=@review.rating%>
+    </p>
     </div>
 </div>
 
@@ -25,11 +29,13 @@
         <% @user = User.find_by! id: e.user_id %>
 
             <div class="col comment-user align-self-center">
-                <%= link_to '@' + @user.username.to_s, user_path(@user.id) %>:
+                <%= link_to '@' + @user.username.to_s+':', user_path(@user.id) %>
             </div>
 
             <div class="col comment-reply align-self-center">
+            <p>
                 <%= e.reply %>
+            </p>
             </div>
         </p>
         </div>
@@ -40,11 +46,16 @@
     <% end %>
 
 <%= form_with model: [@review, @review.comments.build], local:true do |f| %>
-    <div class=""> </div>
+    <div class="container"> 
+    <div class="row">
     <div class="comment-input">
         <%= f.text_area :reply, :maxlength => 140, placeholder:'write a reply' %>
     </div>
-    <%= f.submit %>
+    </div>
+    <div class="row">
+    <%= f.submit 'commentsubmit', class:("commentsubmit") %>
+    </div>
+    </div>
 
 <% end %>
 

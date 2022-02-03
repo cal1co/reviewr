@@ -1,4 +1,4 @@
-
+<div class="darkmode"></div>
 
 <div class="profile-header">
 <h1 class="user-page"><%= @userinfo.username%>'s profile</h1>
@@ -7,9 +7,9 @@
 
         <div class="profile-page-image">
         <% if @imageset %>
-            <%= cl_image_tag @userinfo.image %>
+            <%= image_tag @userinfo.image %>
           <% else %>
-            <%# <%= image_tag @userinfo.image %> %>
+            <%= cl_image_tag @userinfo.image %>
         <% end %>
 
         </div>
@@ -27,7 +27,11 @@ Following:
 <%= @userinfo.following.count %>
 
 <% unless @userinfo.id == @current_user.id %>
-<%= button_to "FOLLOW" %>
+<% if @current_user.following.include? @userinfo %>
+    <%= button_to "UNFOLLOW", unfollow_user_path, method: "POST" %>
+  <% else %>
+    <%= button_to "FOLLOW", follow_user_path, method: "POST"%>
+<% end %>
 <%# copy the like path stuff for this %>
 <% end %>
 
@@ -47,7 +51,7 @@ Following:
 
 <%# TURN THIS INTO A FORM!! %>
 <% @userinfo.reviews.each do |r| %>
-<div class="container usercont">
+<div class="reviewblock usercont">
         <div class="title">
             <p>
             <%= r.title %>
