@@ -13,11 +13,9 @@
 
 <% end %>
 
+<%= form_with model: [@review, @review.comments.build], local:true do |f| %>
 
-
-<%= form_with model: @comment, local:true do |f| %>
-
-<%= f.text_area :reply, :maxlength => 140, placeholder:'Wrtie your reply' %>
-<%= f.submit %>
+    <%= f.text_area :reply, :maxlength => 140, placeholder:'Write your reply' %>
+    <%= f.submit %>
 
 <% end %>

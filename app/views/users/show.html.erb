@@ -3,24 +3,32 @@
 <div class="profile-header">
 <h1 class="user-page"><%= @userinfo.username%>'s profile</h1>
 
-    <% if @userinfo.image == nil %>
-        <% @userinfo.update! image: @userimg%>
-        <% @imageset = false  %>
-        <% raise 'hell' %>
-    <% else %>
+
+
         <div class="profile-page-image">
-        <% if @imageset = true %>
-            <%= cl_image_tag(@userinfo.image, default_image:@userimg) %>
+        <% if @imageset %>
+            <%= cl_image_tag @userinfo.image %>
           <% else %>
-            <%= image_tag @userinfo.image %>
+            <%# <%= image_tag @userinfo.image %> %>
         <% end %>
+
         </div>
-    <% end %>
+
 
 <% if @userinfo.bio.present?  %>
 <div class="userbio">
     <%= @userinfo.bio %>
 </div>
+<% end %>
+
+Followers:
+<%= @userinfo.followers.count  %>
+Following:
+<%= @userinfo.following.count %>
+
+<% unless @userinfo.id == @current_user.id %>
+<%= button_to "FOLLOW" %>
+<%# copy the like path stuff for this %>
 <% end %>
 
 <% if @userinfo.birthday.present?  %>

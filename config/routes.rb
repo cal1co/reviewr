@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   get '/users/destroy'
   
   post '/reviews/:id' => 'reviews#show'
-
+  resources :comments
+  
   resources :lists, :users
+
 
   resources :reviews do 
     resources :likes, :comments

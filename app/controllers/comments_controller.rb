@@ -5,13 +5,15 @@ class CommentsController < ApplicationController
         before_action :find_post  
 
         def new
+          raise 'hell'
           @comment = @post.comment.new
         end
         def create
-          raise 'hell'
           @comment = @post.comments.new comment_params
           @comment.user_id = @current_user.id
-          
+          @post.comments << @comment
+          @comment.save
+
         if @comment.update comment_params
           redirect_to home_path
         else  

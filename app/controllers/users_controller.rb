@@ -14,6 +14,11 @@ class UsersController < ApplicationController
     
     if @user.valid?
       session[:user_id] = @user.id
+      @userimg = Identicon.data_url_for @user.username, 400
+      @user.update! image: @userimg
+
+      @imageset = false 
+      # raise 'hell'
       redirect_to home_path
       
     else
@@ -33,6 +38,7 @@ class UsersController < ApplicationController
     # raise 'hell'
     @current_user.bio = params[:user][:bio]
     @current_user.birthday = params[:user][:birthday]
+
     @imageset = true
     # raise 'hell'
 

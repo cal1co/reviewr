@@ -3,7 +3,9 @@ class ReviewsController < ApplicationController
     before_action :check_if_logged_in, only: [:new, :create]
     # except: is opposite of only: 
     def new
+        raise 'hell'
         @review = Review.new
+        @comment = @post.comment.new
     end
 
     def create
@@ -18,7 +20,6 @@ class ReviewsController < ApplicationController
             response = Cloudinary::Uploader.upload(params[:review][:image])
             @review.image=response['public_id']
         end
-        raise 'hell'
         
         # @review.save 
 
