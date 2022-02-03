@@ -1,14 +1,10 @@
 <div class="darkmode"></div>
-
-
-
-<%= button_to "user feed", home_feed_path %>
-<%= link_to "COMPOSE", new_review_path, class:"compose" %>
-<%= link_to "LIST", new_list_path %>
-
-<%# Sorted by latest %>
-
 <% @reviews.each do |r| %>
+
+<% if r.user.followers.count != 0 %>
+  
+<% if r.user.followers.include? @current_user %>
+
 <div class="reviewblock">
 <%# <div class=".col-md-"></div> %>
 <div class="userimg">
@@ -66,47 +62,5 @@
 </div>
 <% end %>
 
-<% @lists.each do |r| %>
-
-<div class="reviewblock">
-<div class="userimg">
-<%= cl_image_tag r.users.first.image, width:'25'%>
-</div>
-        <div class="title">
-            <p>
-                <%= r.title %>
-            </p>
-        </div>
-        <div class="user">
-        <% if r.users.count > 1 %>
-            <p>
-            @<%= r.users.pluck(:username).first%>+<%= r.users.count.-(1) %>
-            </p>
-            <% else %>
-            @<%= r.users.pluck(:username).join %>
-            <% end %>
-        </div>
-        <div class="content">
-        <% if r.reviews.count == 0 %>
-          <p>this list is empty</p>
-          <% else %>
-            <p>
-            this list contains:
-            <%= r.reviews.pluck(:title).join ', ' %>
-            </p>
-        <% end %>
-        </div>
-        <div class="create_time">
-            <p>
-            published: 
-            <%= r.created_at.strftime("%H:%M %Y-%m-%d") %>
-            </p>
-        </div>
-        <div class="edit">
-            <%= link_to "DELETE", list_path(r.id), method:'delete' %>
-        </div>
-</div>
-
 <% end %>
-
-
+<% end %>

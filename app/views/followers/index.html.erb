@@ -1,4 +1,4 @@
-<%= @user.followers.each do |e| %>
+<% @user.followers.each do |e| %>
 
 <%= link_to '@'+e.username, user_path(e.id)%>
 

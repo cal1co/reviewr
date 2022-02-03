@@ -15,4 +15,9 @@ class PagesController < ApplicationController
         # end
     end
 
+    def feed
+        @reviews = Review.order(created_at: :desc)
+    end
+
+
 end
