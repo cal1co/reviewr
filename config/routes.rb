@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'pages#home'
-  
+  post '/' => 'users#search'
   get '/home' => 'pages#home'
   
   get '/login' => 'session#new'         # login form

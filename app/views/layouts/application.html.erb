@@ -19,6 +19,11 @@
 <h1 class="blahblah">
   <%= link_to "Re:view-r", home_path %>
 </h1>
+<%= form_with model: @user, local:true do |f| %>
+  <%= f.text_field :search %>
+  <%= f.submit %>
+<% end %>
+
 <p class="user-stuff">
       <% if @current_user.image == nil %>
         <% @current_user.update! image: @userimg%>

@@ -3,7 +3,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  
+  def search
+    @user = User.find_by username: params[:search]
+    redirect_to user_path(@user.id)
+  end
 
 
   def create

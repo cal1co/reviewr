@@ -1,0 +1,5 @@
+<%= @user.following.each do |e| %>
+
+<%= link_to '@'+e.username, user_path(e.id)%>
+
+<% end %>
