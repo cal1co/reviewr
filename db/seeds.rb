@@ -16,7 +16,7 @@ print "Creating Users..."
 User.destroy_all
 
 u1 = User.create! email: 'calicoalix@gmail.com', username: 'CAL1CO', password: 'chicken'
-u2 = User.create! email: 'ro@ga.co', username: 'broweena', password: 'chicken'
+u2 = User.create! email: 'ro@ga.co', username: 'browena', password: 'chicken'
 
 u1.reviews << r1 << r2
 u2.reviews << r3
