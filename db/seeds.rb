@@ -3,8 +3,8 @@ print "Creating Reviews..."
 Review.destroy_all
 
 r1 = Review.create! title: 'Porco Rosso: the best ghibli film', rating:'just cos'
-r2 = Review.create! title: 'test review', rating:'test test'
-r3 = Review.create! title: 'Best coder in sei50', rating:"obviously alex, he's so handsome and cool omg"
+r2 = Review.create! title: 'hi', rating:'hihihihihihihihihi'
+r3 = Review.create! title: 'Why Stanley should never weat a shirt', rating:""
 
 puts "created #{Review.count} reviews"
 
@@ -15,12 +15,13 @@ print "Creating Users..."
 
 User.destroy_all
 
-u1 = User.create! email: 'calicoalix@gmail.com', username: 'CAL1CO', password: 'chicken'
+u1 = User.create! email: 'calicoalix@gmail.com', username: 'alex', password: 'chicken'
 u2 = User.create! email: 'ro@ga.co', username: 'browena', password: 'chicken'
-u2 = User.create! email: 'alexking2212@gmail.com', username:'alex', password:'chicken'
+u3 = User.create! email: 'luke@ga.co', username:'lukehamster', password:'chicken'
 
 u1.reviews << r1 << r2
-u2.reviews << r3
+u2.reviews << r2
+u3.reviews << r3
 
 puts "User #{User.first.username} created"
 puts "User #{User.second.username} created"
