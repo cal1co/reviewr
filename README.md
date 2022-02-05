@@ -8,7 +8,8 @@
 ## About this project:
 Completed as project 1 for General Assembly class SEI-50
 
-This project is a simple clone of Twitter. This project took far longer to implement seemingly simple features. The countless files and folders became quite overwhelming by the end which really negatively affected my ability to implement the final planned features. The final product is functional but barely presentable.
+This project is a simple clone of Twitter. This project took far longer to implement seemingly simple features in comparison to my prevoius one. The countless files and folders became quite overwhelming by the end which really negatively affected my ability to implement the final planned features. The final product is functional but barely presentable []. 
+
 
 ## Notable features:
 - 'Reviews' are essentially tweets but with a 'title' column  
@@ -16,7 +17,9 @@ This project is a simple clone of Twitter. This project took far longer to imple
 - Identicons (default profile images)
 - Likes, followers, following (all dependents -- no errors when/if parents destroyed)
 - Image posting
-
+- User search
+- Like and comment counters
+- Total like counter for user (similar to reddit karma)
 
 ## Known bugs and unintended features:
 - Forgot to write the confitional for profile pictures on posts (error if identicon) ! FIXED 6/2 <- new but on Heroku though !
@@ -44,7 +47,7 @@ The main bulk of this project was done in one night (post creation and lists). A
 
 
 ## Special Thanks:
-Special thanks to Rowena. Even though I only asked help later on, her assistance saved me hours of time and helped me to avoid a lot of additional errors. I really appreciate the help and wouldn't have been able to include some core features (or get to sleep early) without her. tysm! 
+Special thanks to Rowena. Even though I only asked for help later on, her assistance saved me hours of time and helped me to avoid a lot of additional errors. I really appreciate the help and wouldn't have been able to include some core features (or get to sleep early) without her. tysm! 
 
 
 # reviewr
