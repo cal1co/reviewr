@@ -38,19 +38,28 @@
                 </p>
             </div>
         <div class = "up">
-            <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
-            <% if pre_like %>
-                <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
-            <% else %>
-                <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
-            <% end %>
-        </div>
-
-            <div class="count">
-                <p>
-                <%= r.likes.count %> 
-                </p>
+                <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
+                    <% if pre_like %>
+                        <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
+                    <% else %>
+                        <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
+                    <% end %>
+                    <p>
+                    <%= r.likes.count %> 
+                    </p>
             </div>
+            <div class="down">
+            </div>
+                <div class="count">
+                <p>
+                <%= button_to '💬', review_path(r.id) %>
+                </p>
+                    <p>
+                    <% unless r.comments.count == nil %>
+                        <%= r.comments.count %>
+                    <% end %>
+                    </p>
+                </div>
         <div class="edit">
             <% if @current_user.id == r.user.id%>
             <%= link_to "DELETE", review_path(r.id), method:'delete' %>

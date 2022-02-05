@@ -178,6 +178,11 @@ p{
     display:flex;
     align-items:center;
 }
+.user-stuff > a > img{
+    border-radius:20px;
+    margin-right: 7px;
+}
+
 .blahblah{
     display:flex;
     justify-content:center;
@@ -188,7 +193,9 @@ p{
 .reviewblock p{
     color:white;
 }
-
+.commentblock{
+    margin-top:80px;
+}
 .reviewblock{
     background-color:#1a1a1b;
     position:relative;
@@ -219,9 +226,12 @@ p{
     .edit { grid-area: edit;}
     .count { grid-area: count;}
     .up { grid-area: up;}
+    .down { grid-area: down}
+    .downcount { grid-area: downcount}
     .userimg { grid-area: userimg;
         display:flex;
         justify-content: center;}
+
 .userimg > img{
     border-radius:50px;
     
@@ -232,9 +242,14 @@ p{
     margin-bottom:5px;
 }
 .count, .up{
-    margin-top:5px;
+    margin-top:10px;
     display:flex;
     justify-content: center;
+    background:none;
+}
+.count > form > input{
+    background:none;
+    border:none;
 }
 
 .title{
@@ -417,6 +432,7 @@ a{
     width:627px;
     /* make into a grid */
 }
+
 .user-page, .user-post, .profile-page-image{
     display:flex;
     justify-content: center;
@@ -424,6 +440,7 @@ a{
 
 .show{
     border-top:none;
+    margin-top:80px;
 }
 p{
     margin-bottom:0;
@@ -492,6 +509,7 @@ p{
 }
 .existacc{
     margin-top:40px;
+    color:black;
 }
 
 a{
@@ -513,4 +531,28 @@ a{
 .likebtn{
     background:transparent;
     border:none;
+}
+
+.like-total{
+    margin-left:9px;
+    margin-right:7px;
+}
+.followresults{
+
+    margin-top:200px;
+}
+
+.followshow{
+    display:grid;
+    justify-content:center;
+    border: 1px solid#343536;
+    width:150px;
+    border-radius:9999px;
+    background:white;
+}
+.followshow > a{
+    color:black;
+}
+.followshow:hover {
+    background:#d7dadc
 }

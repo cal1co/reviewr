@@ -112,11 +112,20 @@
                     <% else %>
                         <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
                     <% end %>
-            </div>
-
-                <div class="count">
                     <p>
                     <%= r.likes.count %> 
+                    </p>
+            </div>
+            <div class="down">
+            </div>
+                <div class="count">
+                <p>
+                <%= button_to '💬', review_path(r.id) %>
+                </p>
+                    <p>
+                    <% unless r.comments.count == nil %>
+                        <%= r.comments.count %>
+                    <% end %>
                     </p>
                 </div>
             <div class="edit">

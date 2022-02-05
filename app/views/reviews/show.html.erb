@@ -1,53 +1,61 @@
 <div class="darkmode"></div>
 
-<div class="reviewblock show">
-    <div class="title">
-<p>
-        <%= @review.title %>
-</p>
-    </div>
+<div class="commentblock">
+    <div class="reviewblock">
         <div class="title">
             <p>
-            <%= @review.title%>
+                <%= @review.title%>
             </p>
         </div>
         <div class="userimg">
-<%= cl_image_tag @review.user.image, width:'25'%>
-</div>
+            <%= cl_image_tag @review.user.image, width:'25'%>
+        </div>
         <div class="user">
-        <p>
-            <%= link_to '@' + @review.user.username.to_s, user_path(@review.user.id) %>
-        </p>
+            <p>
+                <%= link_to '@' + @review.user.username.to_s, user_path(@review.user.id) %>
+            </p>
         </div>
         <div class="post-image">
             <%= cl_image_tag @review.image %>
         </div>
-    <%# <h3>maybe add article field for reviews?</h3> %>
-    <div class="content">
-    <p>
-        <%=@review.rating%>
-    </p>
-    </div>
-    <div class = "up">
-        <% pre_like = @review.likes.find { |like| like.user_id == @current_user.id} %>
-        <% if pre_like %>
-        <%= button_to '', review_like_path(@review.id, pre_like), method: :delete, class:"likebutt btn btn-danger" %>
-        <% else %>
-        <%= button_to '', review_likes_path(@review.id), method: :post, class:"likebutt btn btn-outline-danger" %>
-        <% end %>
-    </div>
-<div class="create_time">
+
+        <div class="content">
             <p>
-            <%= @review.created_at.strftime("%H:%M, %Y-%m-%d") %>
+                <%=@review.rating%>
             </p>
         </div>
+
+        <div class = "up">
+            <% pre_like = @review.likes.find { |like| like.user_id == @current_user.id} %>
+            <% if pre_like %>
+                <%= button_to '❤️', review_like_path(@review.id, pre_like), method: :delete, class:"likebtn" %>
+            <% else %>
+                <%= button_to '🤍', review_likes_path(@review.id), method: :post, class:"likebtn"%>
+            <% end %>
+            <p>
+                <%= @review.likes.count %> 
+            </p>
+        </div>
+
         <div class="count">
             <p>
-            <%= @review.likes.count %> 
+                <%= button_to '💬', review_path(@review.id) %>
+            </p>
+
+            <p>
+                <% unless @review.comments.count == nil %>
+                    <%= @review.comments.count %>
+                <% end %>
             </p>
         </div>
-</div>
 
+        <div class="create_time">
+            <p>
+                <%= @review.created_at.strftime("%H:%M, %Y-%m-%d") %>
+            </p>
+        </div>
+    </div>
+</div>
 
 
 
