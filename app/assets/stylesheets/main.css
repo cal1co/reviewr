@@ -336,7 +336,8 @@ textarea::-webkit-scrollbar {
 
 .input > textarea{
     /* margin-top:10px; */
-    transform: translateY(35%);
+    /* transform: translateY(35%); */
+    margin-top:10px;
     margin-bottom: 20px;
     width:450px;
 }
