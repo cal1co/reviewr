@@ -1,10 +1,7 @@
 <div class="darkmode"></div>
+
+
 <% @reviews.each do |r| %>
-
-<% if r.user.followers.count != 0 %>
-  
-<% if r.user.followers.include? @current_user %>
-
 <div class="reviewblock">
 <%# <div class=".col-md-"></div> %>
 <div class="userimg">
@@ -62,5 +59,4 @@
 </div>
 <% end %>
 
-<% end %>
-<% end %>
+

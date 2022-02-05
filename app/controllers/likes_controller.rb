@@ -7,6 +7,8 @@ def create
         flash[:notice] = "You've already liked this post"
     else
     @post.likes.create(user_id: @current_user.id)
+    add_like = @post.like_count + 1
+    @post.update(like_count: add_like)
     end
     redirect_to home_path
 end  
@@ -15,7 +17,9 @@ def destroy
     if !(already_liked?)
       flash[:notice] = "Cannot unlike"
     else
-      @like.destroy
+        @like.destroy
+        delete_like = @post.like_count - 1
+        @post.update(like_count: delete_like)
     end
     redirect_to home_path
 end

@@ -5,9 +5,12 @@
 .head{
     position: sticky;
 }
-/* body{
-    background-color:#0c1c25;
-} */
+.userfeed{
+    display:flex;
+    justify-content: center;
+    position:relative;
+}
+
 .follow a{
     color:white;
 }
@@ -125,12 +128,13 @@ p{
     justify-content:center;
     left: 50%;
     transform: translateX(-50%);
-    width: 700px;
+    width: 707px;
     border-left: 2px solid #2f3336;
     border-right: 2px solid #2f3336;
-    border-bottom: 2px solid #2f3336;
+
 }
 .head{
+    background:#1a1a1b;
     position:sticky;
     width:100%;
     margin:auto;
@@ -146,6 +150,9 @@ p{
     }
     .blahblah { grid-area: blahblah; }
     .user-stuff { grid-area: user-stuff; }
+.head > a{
+    color:white;
+}
 .user-stuff{
     display:flex;
     align-items:center;
@@ -160,22 +167,21 @@ p{
 .reviewblock p{
     color:white;
 }
-.reviewblock a{
-    color:white;
-}
+
 .reviewblock{
+    background-color:#1a1a1b;
     position:relative;
     padding-left:15px;
     width:627px;
     margin:auto;
+    margin-bottom:10px;
     display:grid;
     justify-content: center;
+    /* margin-left:25vw; */
     grid-auto-columns: 1fr; 
     grid-template-columns: 44px 75px 50px 231px 134px 90px; 
     grid-template-rows: 28px fit-content(100%) 25px 45px; 
-    border-top: 2px solid #2f3336;
-    border-left:2px solid #2f3336;
-    border-right: 2px solid #2f3336;
+    border: 2px solid #2f3336;
     gap: 0px 0px; 
     /* margin-bottom:5px; */
     grid-template-areas: 
@@ -298,4 +304,69 @@ p{
     /* z-index:-100; */
     margin-top: -700px;
     margin-left: -1150px;
+    /* overflow:hidden; */
+}
+/* body {
+    overflow: hidden
+} */
+.custbtn{
+    outline: none;
+    border: none;
+    /* background: #603F83FF; */
+    background: transparent;
+    color: black;
+    position: relative;
+    margin: 17px 0;
+    justify-content: left;
+}
+
+/* .existbtn{
+    content: "";
+    background: darkslateblue;
+    transform-origin: bottom;
+    transform: scaleY(0.15);
+    transition: all 400ms ease;
+}
+.existbtn:hover{
+    transform: scaleY(1);
+} */
+.signinbtn{
+    border-left: 3px solid #00538b;
+}
+.signupbtn{
+    border-bottom:3px solid #00538b;
+}
+.existbtn{
+    /* border-radius:10%; */
+    margin:0;
+    padding-left:20px;
+    padding-right:20px;
+    /* font-size:22px; */
+    transition:  all 200ms ease-out;
+}
+.existbtn:hover
+{
+    background: #00538b;
+    color:white;
+
+}
+.existacc{
+    margin-top:40px;
+}
+
+a{
+    color:white;
+}
+
+@media only screen and (max-width:1340px){
+    .circle{
+        display:none;
+    }
+    .signup{
+        /* display:flex; */
+        left:50%;
+        transform: translateX(-50%);
+        justify-content: center;
+    }
+    
 }

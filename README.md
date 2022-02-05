@@ -44,7 +44,7 @@ The main bulk of this project was done in one night (post creation and lists). A
 
 
 ## Special Thanks:
-Special thanks to Rowena, even though I only needed help later on, her assistance saved me hours of time and helped me to avoid a lot of additional errors. I really appreciate the help and wouldn't have been able to include some core features (or get to sleep early) without her!
+Special thanks to Rowena. Even though I only needed help later on, her assistance saved me hours of time and helped me to avoid a lot of additional errors. I really appreciate the help and wouldn't have been able to include some core features (or get to sleep early) without her!
 
 
 # reviewr
