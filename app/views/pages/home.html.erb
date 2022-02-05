@@ -2,8 +2,7 @@
 
 
 
-<%= button_to "All", home_all_path, class:"userfeed" %>
-<%= link_to "COMPOSE", new_review_path, class:"compose" %>
+
 <%# Sorted by latest %>
 
 <% if @current_user.present? %>
@@ -27,23 +26,39 @@
 
     <%= form_with model: [@review], local:true, html:{multipart:true} do |f| %>
         <div class="review-form">
+        <div class="input-user-image">
+            <% if @current_user.setimage %>
+                <%= link_to cl_image_tag(@current_user.image, width:"35"), user_path(@current_user.id) %>
+            <% else %>
+                <%= link_to image_tag(@current_user.image, width:"35"), user_path(@current_user.id) %>
+            <% end %>
+        </div>
+            
             <div class="article-title">
-                <%= f.text_field :title, :maxlength => 35, :minlength => 1, placeholder:'article title', autocomplete:"off" %>
+                <%= f.text_field :title, :maxlength => 35, :minlength => 1, placeholder:"title", autocomplete:"off" %>
             <%# :onkeyup => "maxLimit(this)" %>
             </div>
             <div class="input">
-                <%= f.text_area :rating, rows: 1, :maxlength => 280, placeholder:'type in me', :onkeyup => "textAreaGrow(this)"%>
+                <%= f.text_area :rating, rows: 1, :maxlength => 280, placeholder:'type in me (optional)', :onkeyup => "textAreaGrow(this)"%>
             </div>
             <div class="review-image"> 
-                <%= f.file_field :image %>
+            <label for="fileimg">
+                <%= cl_image_tag "%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_0004-02-05_21.14.11_vaw7ei.png", class:"fileimg" %>
+            </label>
+                <%= f.file_field :image, id:"fileimg", class:"fileupload" %>
             </div>
-            <%= f.submit %>
+            <div class="submit-post">
+            <%= f.submit 'Post' %>
+            </div>
         </div>
 
     <% end %>
     
 
 <% end %>  <%# compose %>
+
+<%= button_to "All", home_all_path, class:"userfeed" %>
+
 
 <% @reviews.each do |r| %>
 
@@ -93,9 +108,9 @@
             <div class = "up">
                 <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
                     <% if pre_like %>
-                        <%= button_to '', review_like_path(r.id, pre_like), method: :delete, class:"likebutt btn btn-danger" %>
+                        <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
                     <% else %>
-                        <%= button_to '', review_likes_path(r.id), method: :post, class:"likebutt btn btn-outline-danger" %>
+                        <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
                     <% end %>
             </div>
 

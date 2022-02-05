@@ -21,8 +21,10 @@
   <%= link_to "Re:view-r", home_path %>
 </h1>
 <%= form_with model: @user, local:true do |f| %>
-  <%= f.text_field :search %>
-  <%= f.submit %>
+<div class="search-user">
+  <%= f.text_field :search, placeholder:"search for a user"%>
+  <%= f.submit '⌕' %>
+</div>
 <% end %>
 
 <p class="user-stuff">

@@ -40,11 +40,11 @@ This project is a simple clone of Twitter. This project took far longer to imple
 
 
 ## Summary:
-The main bulk of this project was done in one night (post creation and lists). As I added things, my momentum (focus) continually dropped until I could barely do anything without help (ty, Ro!). I made sure to fix all the bugs I had and triple checked every feature before moving on to the next one, so my final product is a lot more functional than my last one. I regret not styling my pages earlier. The final product is the result of roughly 1hr30min (including the profile page + posts).  
+The main bulk of this project was done in one night (post creation and lists). As I added things, my momentum (focus) continually dropped until I could barely do anything without help (ty, Ro!). I made sure to fix all the bugs I had and triple checked every feature before moving on to the next one, so my final product is a lot more functional than my last one. I really regret not styling my pages earlier... they're so ugly!  
 
 
 ## Special Thanks:
-Special thanks to Rowena. Even though I only needed help later on, her assistance saved me hours of time and helped me to avoid a lot of additional errors. I really appreciate the help and wouldn't have been able to include some core features (or get to sleep early) without her!
+Special thanks to Rowena. Even though I only asked help later on, her assistance saved me hours of time and helped me to avoid a lot of additional errors. I really appreciate the help and wouldn't have been able to include some core features (or get to sleep early) without her. tysm! 
 
 
 # reviewr

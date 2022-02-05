@@ -245,18 +245,107 @@ textarea::-webkit-scrollbar {
 }
 .review-form{
     display:grid;
-    justify-content: center;
+    background:#1a1a1b;
+    border-radius:10px;
+    /* justify-content: center; */
     border:2px solid white;
-    /* position:relative; */
-    /* display:flex; */
     margin:auto;
-    margin-top:50px;
-    width:400px;
+    margin-top:20px;
+    margin-bottom:25px;
+    width:627px;
+    grid-template-columns: 50px 300px fit-content(100%);
+    grid-template-rows: 50px fit-content(100%) 20px; 
+    border: 2px solid #2f3336;
+    grid-template-areas: 
+    "input-user-image article-title review-image"
+    "input blank submit-post "
 }
-/* .input, .article-title{
+.input-user-image{ 
+    grid-area:input-user-image;
+    display:flex; 
+    justify-content:center;
+    align-items: center;
+}
+.article-title{ 
+    grid-area:article-title;
+    display:flex; 
+    /* justify-content:center; */
+    align-items: center;
+    
+}
+.article-title > input, .search-user > input{
+    max-width:300px;
+    margin-left:10px;
+    border-radius:5px;
+}
+.article-title > input, .input > textarea, .search-user > input{
+    background:#272729;
+    /* color:#858688; */
+    color:white;
+    border:1px solid#343536;
+    padding-left:7px;
+}
+.article-title > input:hover, .input > textarea:hover, .search-user > input:hover{
+    border:1.5px solid #d7dadc;
+}
+.review-image{ grid-area:review-image;}
+.input{ grid-area:input; margin-left:25px; width:375px;}
+.submit-post{ grid-area:submit-post;}
+
+.input > textarea{
+    /* margin-top:10px; */
+    transform: translateY(35%);
+    margin-bottom: 20px;
+    width:450px;
+}
+
+.input-user-image >a>img{
+    border-radius:30px;
+    height:35px;
+}
+.fileimg{
+    margin-top:10px;
+    max-width:30px;
+}
+.fileimg:hover{
+    border:2px solid transparent;
+}
+.fileupload{
+    display:none;
+}
+
+.submit-post > input{
+    font-family: Noto Sans,Arial,sans-serif;
+    display:flex; 
+    justify-content:center;
+    align-items: center;
+    /* margin-left:50px; */
+    
+    margin-top:10px;
+    transform: translateX(235%);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    height: 32px;
+    width: 60px;
+    border:none;
+    border-radius:9999px;
+    background:white;
+    
+    /* padding: 4px 16px; */
+}
+.submit-post:hover > input{
+    background:#d7dadc
+}
+
+
+.search-user{
     display:flex;
-    justify-content: center;
-} */
+    /* justify-content:center; */
+    transform: translateX(30%);
+    margin-top:12px;
+}
+
 .create_time{
       margin-top:5px
 }
@@ -368,5 +457,9 @@ a{
         transform: translateX(-50%);
         justify-content: center;
     }
-    
+}
+
+.likebtn{
+    background:transparent;
+    border:none;
 }

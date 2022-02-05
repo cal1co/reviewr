@@ -10,7 +10,9 @@ def create
     add_like = @post.like_count + 1
     @post.update(like_count: add_like)
     end
-    redirect_to home_path
+    # redirect_to home_path
+    
+    # redirect_back(fallback_location: root_path)
 end  
 
 def destroy
@@ -21,7 +23,7 @@ def destroy
         delete_like = @post.like_count - 1
         @post.update(like_count: delete_like)
     end
-    redirect_to home_path
+    # redirect_to home_path
 end
 def find_like
     @post = Review.find(params[:review_id])

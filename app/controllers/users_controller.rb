@@ -75,6 +75,7 @@ class UsersController < ApplicationController
   def show
     @user = @current_user
     @userinfo = User.find params[:id]
+    @user_reviews = @userinfo.reviews.order(created_at: :desc)
     @userimg = Identicon.data_url_for @userinfo.username, 400
   end
 

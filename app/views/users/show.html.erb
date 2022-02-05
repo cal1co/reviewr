@@ -58,7 +58,7 @@
 
 
 <%# TURN THIS INTO A FORM!! %>
-<% if @userinfo.reviews.count == 0 %>
+<% if @user_reviews.count == 0 %>
   <div class="reviewblock usercont">
     <div class="content">
         <p>
@@ -67,7 +67,7 @@
     </div>
   </div>
 <% end %>
-<% @userinfo.reviews.each do |r| %>
+<% @user_reviews.each do |r| %>
 <div class="reviewblock usercont">
         <div class="userimg">
 <%= cl_image_tag r.user.image, width:'25'%>
@@ -100,9 +100,9 @@
     <div class = "up">
         <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
         <% if pre_like %>
-        <%= button_to '', review_like_path(r.id, pre_like), method: :delete, class:"likebutt btn btn-danger" %>
+            <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
         <% else %>
-        <%= button_to '', review_likes_path(r.id), method: :post, class:"likebutt btn btn-outline-danger" %>
+            <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
         <% end %>
     </div>
 
