@@ -16,37 +16,50 @@
 
 
     <% if @current_user.present? %>
-<nav class="head">
-<h1 class="blahblah">
-  <%= link_to "Re:view-r", home_path %>
-</h1>
-<%= form_with model: @user, local:true do |f| %>
-<div class="search-user">
-  <%= f.text_field :search, placeholder:"search for a user"%>
-  <%= f.submit '⌕' %>
-</div>
-<% end %>
+    <div class="navbar">
+      <nav class="head">
 
-<p class="user-stuff">
-      <% if @current_user.image == nil %>
-        <% @current_user.update! image: @userimg%>
-      <% end %>
-      <% if @current_user.setimage %>
-        <%= link_to cl_image_tag(@current_user.image, width:"25"), user_path(@current_user.id) %>
-      <% else %>
-        <%= link_to image_tag(@current_user.image, width:"25"), user_path(@current_user.id) %>
-      <% end %>
-      @<%= link_to @current_user.username, user_path(@current_user.id) %>
-      |
-      <%= link_to 'LOGOUT', login_path, method: 'delete' %>
-</p>
+        <h1 class="blahblah">
+          <%= link_to "Re:view-r", home_path %>
+        </h1>
 
-    <% else %>
-      <%= link_to 'SIGN UP', users_new_path %>
+        <div class="searchquery">
+            <button class="search-show">^</button>
+              <div class="search-select">
+                <%= button_to "All", home_all_path, class:"userfeed" %>
+                <%= button_to "Popular", home_popular_path %>
+              </div>
+        </div>
 
-    <% end %>
-</nav>
-    
+        <%= form_with model: @user, local:true do |f| %>
+          <div class="search-user">
+            <%= f.text_field :search, placeholder:"search for a user"%>
+            <%= f.submit '⌕' %>
+          </div>
+        <% end %>
+
+        <p class="user-stuff">
+          <% if @current_user.image == nil %>
+            <% @current_user.update! image: @userimg%>
+          <% end %>
+
+          <% if @current_user.setimage %>
+            <%= link_to cl_image_tag(@current_user.image, width:"25"), user_path(@current_user.id) %>
+          <% else %>
+            <%= link_to image_tag(@current_user.image, width:"25"), user_path(@current_user.id) %>
+          <% end %>
+
+          @<%= link_to @current_user.username, user_path(@current_user.id) %>
+          |
+          <%= link_to 'LOGOUT', login_path, method: 'delete' %>
+        </p>
+
+          <% else %>
+            <%= link_to 'SIGN UP', users_new_path %>
+
+          <% end %>
+      </nav>
+    </div>
     
     <%= yield %>
   </body>

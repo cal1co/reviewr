@@ -3,7 +3,7 @@
 
 
 
-<%# Sorted by latest %>
+<div class="home-page">
 
 <% if @current_user.present? %>
 
@@ -57,7 +57,7 @@
 
 <% end %>  <%# compose %>
 
-<%= button_to "All", home_all_path, class:"userfeed" %>
+
 
 
 <% @reviews.each do |r| %>
@@ -132,3 +132,4 @@
     <% end %>
 
 <% end %> <%# show reviews %>
+</div>

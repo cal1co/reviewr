@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/' => 'users#search'
   get '/home' => 'pages#home'
   post '/home/all' => 'pages#feed'
+  post '/home/popular' => 'pages#popular'
 
   get '/login' => 'session#new'         # login form
   post '/login' => 'session#create'     # performs login, redirect

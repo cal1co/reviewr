@@ -44,5 +44,7 @@ class PagesController < ApplicationController
         @reviews = Review.order(created_at: :desc)
     end
 
-
+    def popular
+        @reviews = Review.order(like_count: :desc)
+    end
 end
