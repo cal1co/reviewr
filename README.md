@@ -19,19 +19,19 @@ This project is a simple clone of Twitter. This project took far longer to imple
 
 
 ## Known bugs and unintended features:
-- Forgot to write the confitional for profile pictures on posts (error if identicon)
-- 'already have an account?' button doesn't go to sign-in page
-- Had to separate 'compose' area to a separate page to avoid areas. It would be better on the home page 
-- nav bar not sticky
-- User followers and following links don't go anywhere anymore <- forgot I changed the routes 
+- Forgot to write the confitional for profile pictures on posts (error if identicon) ! FIXED 6/2 <- new but on Heroku though !
+- 'already have an account?' button doesn't go to sign-in page ! FIXED 6/2 !
+- Had to separate 'compose' area to a separate page to avoid areas. It would be better on the home page ! FIXED 6/2 !
+- nav bar not sticky ! FIXED 6/2 !
+- User followers and following links don't go anywhere anymore <- forgot I changed the routes ! FIXED 6/2 !
 
 ## Wishlist and housekeeping: 
 - Fix jQuery for sign-up page 
 - A cleaner appearence for my pages would be nice 
-- User search, already wrote the code, didn't use it on the page (can't use follower feed without it)
-- Move compose back to home page
+- User search, already wrote the code, didn't use it on the page (can't use follower feed without it) ! COMPLETED 6/2 (can still improve this feature)!
+- Move compose back to home page ! COMPLETED 6/2 !
 - Ajax calls would fix a lot of the clunkiness of all the interactive features
-- A sort-by drop down (also already wrote this, just need to implement <- would function more like Reddit posts)
+- A sort-by drop down (also already wrote this, just need to implement <- would function more like Reddit posts) ! COMPLETED 6/2 <- unresponsive, would benefit from AJAX calls!
 - Allow 2 images on compose. I didn't like the cloudinary widget, so I didn't add it. 
 - Unsure about the list feature. It works fine, but it is extremely 'gimicky' and I can't see why it should exist. ('lists' are groupings of multiple 'reviews' in one single post)
 - A header for user profile
