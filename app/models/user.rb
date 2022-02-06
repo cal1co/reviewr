@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ApplicationRecord # notes from Luke's lesson -->
 
     # before_destroy :destroy_associated_items
     has_secure_password
@@ -77,14 +77,12 @@ class User < ApplicationRecord
     end
     # Review.where user_id: User.first.following.ids
 
-
-
     private 
     def destroy_associated_items
         puts "hello"
         likes.destroy_all
         reviews.destroy_all
         true
-    end
+    end #destroy_associated_items
 
 end # class User

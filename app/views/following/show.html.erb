@@ -1,10 +1,13 @@
 <div class="darkmode"></div>
+
 <div class="followresults">
-<% @user.following.each do |e| %>
 
-<div class="followshow">
-    <%= link_to '@'+e.username, user_path(e.id)%>
-</div>
+    <% @user.following.each do |e| %>
 
-<% end %>
+    <div class="followshow">
+        <%= link_to '@'+e.username, user_path(e.id)%>
+    </div>
+
+    <% end %>
+
 </div>

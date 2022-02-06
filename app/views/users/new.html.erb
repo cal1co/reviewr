@@ -4,32 +4,36 @@
 <% end %>
 
 <% if flash[:error] %>
-<%= flash[:error] %>
+    <%= flash[:error] %>
 <% end %>
 
 
 <div class="circle"></div>
 
 <div class="container signup">
-<%= form_with model: @user, local:true do |f| %>
-    <div class="row">
-        <h1 class="newacc">CREATE A NEW ACCOUNT</h1>
-    </div>
-    <div class="row">
-    <%= f.text_field :username, :maxlength => 15, placeholder:'username', autocomplete:"off", class:"newuser" %>
-    </div>
-    <div class="row">
-    <%= f.text_field :email, placeholder:'email', class:"newemail" %>
-    </div>
-    <div class="row">
-    <%= f.password_field :password, placeholder:'password', class:"newemail" %>
-    </div>
-    <div class="row">
-    <%= f.submit 'Sign up', class:"existbtn custbtn signupbtn" %>
-    </div>
+    <%= form_with model: @user, local:true do |f| %>
+        <div class="row">
+            <h1 class="newacc">CREATE A NEW ACCOUNT</h1>
+        </div>
 
-<% end %>
+        <div class="row">
+            <%= f.text_field :username, :maxlength => 15, placeholder:'username', autocomplete:"off", class:"newuser" %>
+        </div>
 
-<h5 class="existacc">Already have an account?</h5>
+        <div class="row">
+            <%= f.text_field :email, placeholder:'email', class:"newemail" %>
+        </div>
+
+        <div class="row">
+            <%= f.password_field :password, placeholder:'password', class:"newemail" %>
+        </div>
+
+        <div class="row">
+            <%= f.submit 'Sign up', class:"existbtn custbtn signupbtn" %>
+        </div>
+
+    <% end %>
+
+    <h5 class="existacc">Already have an account?</h5>
     <%= button_to 'Sign in', login_path, class:"existbtn custbtn signinbtn"%>
 </div>

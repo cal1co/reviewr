@@ -19,7 +19,7 @@
 
 $(document).ready(function(){
     randColor = Math.floor(Math.random()*16777215).toString(16);
-    $('.circle').css('background-color', randColor)
+    $('.circle').css('background-color', '#'+randColor)
     console.log(randColor)
     console.log('helloooo')
 });

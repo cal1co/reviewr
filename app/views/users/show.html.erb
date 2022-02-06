@@ -1,125 +1,135 @@
 <div class="darkmode"></div>
 
-    <div class="profile-header">
-        <div class="header-img">
-        </div>
+<div class="profile-header">
+    
+    <div class="header-img">
+    </div>
 
-        <p>
-        <h1 class="user-page"><%= @userinfo.username%>'s profile</h1>
-        </p>
+    <p>
+    <h1 class="user-page"><%= @userinfo.username%>'s profile</h1>
+    </p>
 
-        <div class="profile-page-image">
-        <% if @userinfo.setimage %>
-            <%= cl_image_tag @userinfo.image %>
-        <% else %>
-            <%= image_tag @userinfo.image %>
-        <% end %>
+    <div class="profile-page-image">
+    <% if @userinfo.setimage %>
+        <%= cl_image_tag @userinfo.image %>
+    <% else %>
+        <%= image_tag @userinfo.image %>
+    <% end %>
 
-        </div>
+    </div>
 
 
 
     <div class="flwbtn">
-    <% unless @userinfo.id == @current_user.id %>
-    <% if @current_user.following.include? @userinfo %>
-        <%= button_to "UNFOLLOW", unfollow_user_path, method: "POST", class:"btn btn-outline-danger" %>
-    <% else %>
-        <%= button_to "FOLLOW", follow_user_path, method: "POST", class:"btn btn-outline-primary"%>
-    <% end %>
-    <%# copy the like path stuff for this %>
-    <% end %>
-    <% if @current_user.present? %>
-        <% if @current_user.id == @userinfo.id %>
-            <%= button_to "preferences", edit_user_path(@current_user) %>
-            <%# <%= button_to "user likes", user_like_path(@userinfo) %> 
+        <% unless @userinfo.id == @current_user.id %>
+            <% if @current_user.following.include? @userinfo %>
+                <%= button_to "UNFOLLOW", unfollow_user_path, method: "POST", class:"btn btn-outline-danger" %>
+            <% else %>
+                <%= button_to "FOLLOW", follow_user_path, method: "POST", class:"btn btn-outline-primary"%>
+            <% end %>
+            <%# copy the like path stuff for this %>
         <% end %>
 
-    <% end %>
+            <% if @current_user.present? %>
+                <% if @current_user.id == @userinfo.id %>
+                    <%= button_to "preferences", edit_user_path(@current_user) %>
+                    <%# <%= button_to "user likes", user_like_path(@userinfo) %> 
+                <% end %>
+            <% end %>
     </div>
-    <% if @userinfo.bio.present?  %>
-    <div class="userbio">
-    <p>
-        <%= @userinfo.bio %>
-    </p>
-    </div>
+
+    <% if @userinfo.bio.present? %>
+        <div class="userbio">
+            <p>
+                <%= @userinfo.bio %>
+            </p>
+        </div>
     <% end %>
 
     <p class="follow">
-    <%= link_to "Followers: #{@userinfo.followers.count}", user_followers_path(@userinfo.id) %>
-    <%= link_to "Following: #{@userinfo.following.count}", user_following_path(@userinfo.id) %>
+        <%= link_to "Followers: #{@userinfo.followers.count}", user_followers_path(@userinfo.id) %>
+        <%= link_to "Following: #{@userinfo.following.count}", user_following_path(@userinfo.id) %>
     </p>
 
 
     <% if @userinfo.birthday.present?  %>
-    <div class="userbirth">
-        <%= @userinfo.birthday %>
-    </div>
+        <div class="userbirth">
+            <%= @userinfo.birthday %>
+        </div>
     <% end %>
 
 
 
     <%# TURN THIS INTO A FORM!! %>
     <% if @user_reviews.count == 0 %>
-    <div class="reviewblock usercont">
-        <div class="content">
-            <p>
-                this user hasn't posted anything yet 
-            </p>
+        <div class="reviewblock usercont">
+            <div class="content">
+                <p>
+                    this user hasn't posted anything yet 
+                </p>
+            </div>
         </div>
-    </div>
     <% end %>
+
     <% @user_reviews.each do |r| %>
-    <div class="reviewblock usercont">
+        <div class="reviewblock usercont">
             <div class="userimg">
-    <%= cl_image_tag r.user.image, width:'25'%>
-    </div>
+                <%= cl_image_tag r.user.image, width:'25'%>
+            </div>
+
             <div class="title">
                 <p>
-                <%= link_to r.title, review_path(r.id) %>
+                    <%= link_to r.title, review_path(r.id) %>
                 </p>
             </div>
+
             <div class="user">
-            <p>
-                <%= link_to '@' + r.user.username.to_s, user_path(r.user.id) %>
-            </p>
+                <p>
+                    <%= link_to '@' + r.user.username.to_s, user_path(r.user.id) %>
+                </p>
             </div>
+
             <div class="content">
-            <p>
-                <%= r.rating %>
-            </p>
-            <% unless r.image == nil %>
-            <div class="post-image">
-                <%= cl_image_tag r.image %>
+                <p>
+                    <%= r.rating %>
+                </p>
+
+                <% unless r.image == nil %>
+                    <div class="post-image">
+                        <%= cl_image_tag r.image %>
+                    </div>
+                <% end %>
             </div>
-            <% end %>
-            </div>
+
             <div class="create_time">
                 <p>
-                <%= r.created_at.strftime("%H:%M, %Y-%m-%d") %>
+                    <%= r.created_at.strftime("%H:%M, %Y-%m-%d") %>
                 </p>
             </div>
-        <div class = "up">
-            <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
-            <% if pre_like %>
-                <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
-            <% else %>
-                <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
-            <% end %>
-        </div>
+
+            <div class = "up">
+                <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
+                <% if pre_like %>
+                    <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
+                <% else %>
+                    <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
+                <% end %>
+            </div>
 
             <div class="count">
                 <p>
-                <%= r.likes.count %> 
+                    <%= r.likes.count %> 
                 </p>
             </div>
-        <div class="edit">
-            <% if @current_user.id == r.user.id%>
-            <%= link_to "DELETE", review_path(r.id), method:'delete' %>
-        <% end %>
-        </div>
-        <%# <div class=".col-md-"></div> %>
-    </div>
 
-    <% end %>
+            <div class="edit">
+                <% if @current_user.id == r.user.id%>
+                    <%= link_to "DELETE", review_path(r.id), method:'delete' %>
+                <% end %>
+            </div>
+
+        </div> <%# review block %>
+
+    <% end %> <%# user review each %>
 
 </div>

@@ -1,5 +1,5 @@
 <% @user.followers.each do |e| %>
 
-<%= link_to '@'+e.username, user_path(e.id)%>
+    <%= link_to '@'+e.username, user_path(e.id)%>
 
 <% end %>

@@ -2,10 +2,7 @@ class SessionController < ApplicationController
   def new
   end
 
-  def create
-   
-   
-   
+  def create # notes from Luke's lesson -->
     # 1. Check in the email address is actually in the DB 
     user = User.find_by email: params[:email]
 
@@ -38,10 +35,11 @@ class SessionController < ApplicationController
 
     end 
 
-  end
+  end # create()
 
   def destroy
     session[:user_id] = nil
     redirect_to login_path
-  end
-end
+  end # destroy()
+
+end # SessionController

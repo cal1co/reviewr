@@ -7,44 +7,35 @@ class PagesController < ApplicationController
         @lists = List.order(created_at: :desc)
         @users = User.all
         @review = Review.new
-
-        # @review = Review.find params[:id]
-
-        # if params[:review][:image].present?
-        #     response = Cloudinary::Uploader.upload(params[:review][:image])
-        #     @review.image=response['public_id']
-        # end
-    end
+    end # home()
 
     def new
         @review = Review.new
-    end
+    end # new()
+
     def create
-        raise 'hell'
         @review = Review.new review_params 
         @review.user_id = @current_user.id
         
         if params[:review][:image].present?
             response = Cloudinary::Uploader.upload(params[:review][:image])
             @review.image=response['public_id']
-        end
-        
-        # @review.save 
-
+        end # if image present
         
         if @review.update review_params
-        # if @review.save review_params
             redirect_to home_path
         else
             render :new
         end 
-    end
+
+    end # create()
 
     def feed
         @reviews = Review.order(created_at: :desc)
-    end
+    end # feed()
 
     def popular
         @reviews = Review.order(like_count: :desc)
-    end
-end
+    end # popular()
+
+end # PagesController

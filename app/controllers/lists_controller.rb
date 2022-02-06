@@ -1,41 +1,39 @@
-class ListsController < ApplicationController
+class ListsController < ApplicationController # not implemented !!
 
     def new
         @reviews = Review.all
         @list = List.new
-    end
+    end # new()
 
     def create
         List.create list_params
         redirect_to home_path
-    end
+    end # create()
 
     def edit
         @review = Review.find params[:id]
         redirect_to login_path unless @review.user_id == @current_user.id
-    end
+    end # edit()
 
     def update
         @review = Review.find params[:id]
-
         redirect_to login_path and return unless @review.user_id == @current_user.id
-
         @review.update review_params
         redirect_to review_path(@review)
-    end
 
+    end # update()
 
     def show
         @list = List.find params[:id]
-    end
+    end # show()
 
     def destroy
         List.destroy params[:id]
         redirect_to home_path
-    end
+    end # destroy()
 
     def list_params # !!!!!
         params.require(:list).permit(:title,:image,:user_id)
-    end 
+    end # list_params()
 
-end
+end # ListsController

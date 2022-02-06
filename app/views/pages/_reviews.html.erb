@@ -1,71 +1,79 @@
 <div class="darkmode"></div>
 
-
 <div class="all-posts">
-<% @reviews.each do |r| %>
-    <div class="reviewblock">
-        <%# <div class=".col-md-"></div> %>
-        <div class="userimg">
-            <% if r.user.setimage %>
-                <%= cl_image_tag r.user.image, width:'25'%>
-            <% else %>
-                <%= image_tag r.user.image, width:'25' %>
-            <% end %>
-        </div>
+    <% @reviews.each do |r| %>
+        <div class="reviewblock">
+            <%# <div class=".col-md-"></div> %>
+            <div class="userimg">
+                <% if r.user.setimage %>
+                    <%= cl_image_tag r.user.image, width:'25'%>
+                <% else %>
+                    <%= image_tag r.user.image, width:'25' %>
+                <% end %>
+            </div>
+
             <div class="title">
                 <p>
                 <%= link_to r.title, review_path(r.id) %>
                 </p>
             </div>
+
             <div class="user">
             <p>
                 <%= link_to '@' + r.user.username.to_s, user_path(r.user.id) %>
             </p>
             </div>
+
             <div class="content">
-            <p>
-                <%= r.rating %>
-            </p>
-            <% unless r.image == nil %>
-            <div class="post-image">
-                <%= cl_image_tag r.image %>
+                <p>
+                    <%= r.rating %>
+                </p>
+                <% unless r.image == nil %>
+                <div class="post-image">
+                    <%= cl_image_tag r.image %>
+                </div>
+                <% end %>
             </div>
-            <% end %>
-            </div>
+
             <div class="create_time">
                 <p>
-                <%= r.created_at.strftime("%H:%M, %Y-%m-%d") %>
+                    <%= r.created_at.strftime("%H:%M, %Y-%m-%d") %>
                 </p>
             </div>
-        <div class = "up">
+
+            <div class = "up">
                 <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
-                    <% if pre_like %>
-                        <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
-                    <% else %>
-                        <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
-                    <% end %>
-                    <p>
+                <% if pre_like %>
+                    <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
+                <% else %>
+                    <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
+                <% end %>
+                <p>
                     <%= r.likes.count %> 
-                    </p>
+                </p>
             </div>
+
             <div class="down">
             </div>
-                <div class="count">
+
+            <div class="count">
                 <p>
-                <%= button_to '💬', review_path(r.id) %>
+                    <%= button_to '💬', review_path(r.id) %>
                 </p>
-                    <p>
+                <p>
                     <% unless r.comments.count == nil %>
                         <%= r.comments.count %>
                     <% end %>
-                    </p>
-                </div>
-        <div class="edit">
-            <% if @current_user.id == r.user.id%>
-            <%= link_to "DELETE", review_path(r.id), method:'delete' %>
-        <% end %>
+                </p>
+            </div>
+
+            <div class="edit">
+                <% if @current_user.id == r.user.id%>
+                <%= link_to "DELETE", review_path(r.id), method:'delete' %>
+                <% end %>
+
+            </div>
+
         </div>
-        <%# <div class=".col-md-"></div> %>
-    </div>
-<% end %>
-</div>
+    <% end %> <%# reviews.each %>
+</div> <%# all-posts %>

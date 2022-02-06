@@ -9,11 +9,10 @@
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
 
-  <%= yield(:signup) %>
+    <%= yield(:signup) %>
   </head>
 
   <body>
-
 
     <% if @current_user.present? %>
     <div class="navbar">
@@ -50,9 +49,7 @@
           <% end %>
 
           <%= link_to '@'+@current_user.username.to_s, user_path(@current_user.id) %>
-          
           <%= link_to ' ♡ ' + @current_user.reviews.select(:like_count).map(&:like_count).sum.to_s, user_path(@current_user.id), class:"like-total"%>
-
           |
           <%= link_to 'LOGOUT', login_path, method: 'delete' %>
         </p>
@@ -60,6 +57,7 @@
           <% else %>
             <%= link_to 'SIGN UP', users_new_path, class:"btn btn-outline-danger" %>
           <% end %>
+
       </nav>
     </div>
     
