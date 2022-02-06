@@ -40,7 +40,7 @@ This project is an attempt at a simple social media platform like Twitter or Red
 - A header for user profile
 - A tab for posts liked by a user (on their profile)
 - Settings page should be far more extensive. 
-- 
+- A top users (or posts) panel which displays a top 5 list of posts or users, shown on the home page.
 
 
 ## Summary:
