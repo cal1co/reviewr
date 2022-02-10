@@ -63,13 +63,13 @@
             <div class="reviewblock">
 
                 <div class="userimg">
-                <% if r.user.setimage %>
-                    <%= cl_image_tag r.user.image, width:'25'%>
-                <% else %>
-                    <%= image_tag r.user.image, width:'25' %>
-                <% end %>
-                
+                    <% if r.user.setimage %>
+                        <%= cl_image_tag r.user.image, width:'25'%>
+                    <% else %>
+                        <%= image_tag r.user.image, width:'25' %>
+                    <% end %>
                 </div>
+
                     <div class="title">
                         <p>
                         <%= link_to r.title, review_path(r.id) %>
@@ -102,9 +102,9 @@
                 <div class = "up">
                     <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
                         <% if pre_like %>
-                            <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
+                            <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn liked"%>
                         <% else %>
-                            <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
+                            <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn like"%>
                         <% end %>
                         <p>
                         <%= r.likes.count %> 

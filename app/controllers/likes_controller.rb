@@ -11,7 +11,7 @@ class LikesController < ApplicationController
             add_like = @post.like_count + 1
             @post.update(like_count: add_like)
         end
-
+        redirect_to home_path
     end # create()
 
     def destroy
@@ -22,7 +22,7 @@ class LikesController < ApplicationController
             delete_like = @post.like_count - 1
             @post.update(like_count: delete_like)
         end
-
+        redirect_to home_path
     end # destroy()
 
     def find_like

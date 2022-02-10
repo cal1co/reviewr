@@ -19,9 +19,9 @@
             </div>
 
             <div class="user">
-            <p>
-                <%= link_to '@' + r.user.username.to_s, user_path(r.user.id) %>
-            </p>
+                <p>
+                    <%= link_to '@' + r.user.username.to_s, user_path(r.user.id) %>
+                </p>
             </div>
 
             <div class="content">
@@ -44,9 +44,11 @@
             <div class = "up">
                 <% pre_like = r.likes.find { |like| like.user_id == @current_user.id} %>
                 <% if pre_like %>
-                    <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn" %>
+                <!-- SET UP jQuery onClick for both and handle the like action through there (?) 
+                both a form and tell it to submit on click so it's submitting itself without another button, then add svg like button!-->
+                    <%= check_box '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn", checked:"checked" %>
                 <% else %>
-                    <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
+                    <%= check_box '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
                 <% end %>
                 <p>
                     <%= r.likes.count %> 

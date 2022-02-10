@@ -22,4 +22,28 @@ $(document).ready(function(){
     $('.circle').css('background-color', '#'+randColor)
     console.log(randColor)
     console.log('helloooo')
+
+    function addLikeToPost(){
+
+    }
+
+    function removeLikeFromPost(){
+
+    }
+
+    $('.like').on('click', function(){
+        console.log($(this))
+        $(this).val('❤️')
+        console.log('clicked')
+        $(this).removeClass('likebtn like')
+        $(this).addClass('likebtn liked')
+        addLikeToPost()
+    })
+    $('.liked').on('click', function(){
+        $(this).val('🤍')
+        console.log('clicked')
+        $(this).removeClass('likebtn liked')
+        $(this).addClass('likebtn like')
+        removeLikeFromPost()
+    })
 });
