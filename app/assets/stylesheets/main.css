@@ -187,6 +187,31 @@ p{
     margin-right: 7px;
 }
 
+.scoreboard{
+    position:absolute;
+    top:9.2%;
+    left:80%;
+    transform:translateX(-50%);
+    color:white;
+    background: #1a1a1b;
+    border: 2px solid #2f3336;
+    border-radius:20px;
+    width:350px;
+    max-width:fit-content(100%);
+}
+.scoreboard img{
+    border-radius:20px;
+}
+.scoreboard *{
+    margin-left:5px;
+}
+.scoreboard > h3{
+    font-family: Noto Sans,Arial,sans-serif;
+    margin-left:7px;
+
+}
+
+
 .blahblah{
     display:flex;
     justify-content:center;
@@ -595,4 +620,8 @@ a{
 .⌕{
     display:flex;
     align-items:center;
+}
+
+.rank:hover{
+    background: #272729;
 }

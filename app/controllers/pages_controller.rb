@@ -16,7 +16,6 @@ class PagesController < ApplicationController
         @silver = User.find_by id:freq[1][0]
         @bronze = User.find_by id:freq[2][0]
 
-
     end # home()
 
     def new
