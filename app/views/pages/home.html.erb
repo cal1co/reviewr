@@ -1,7 +1,6 @@
 <div class="darkmode"></div>
 
 <div class="home-page">
-
     <% if @current_user.present? %>
 
         <script>
@@ -136,4 +135,56 @@
 
     <% end %> <%# show reviews %>
 
+
+<div class="scoreboard">
+    <% if @gold.setimage %> 
+        <%= link_to cl_image_tag(@gold.image, width:"35"), user_path(@gold.id) %>
+    <% else %>
+        <%= link_to image_tag(@gold.image, width:"35"), user_path(@gold.id) %>
+    <% end %>
+    <%= link_to '@' + @gold.username, user_path(@gold)%>
+    <%= link_to '♡' + @gold.reviews.select(:like_count).map(&:like_count).sum.to_s, user_path(@gold) %>
+    <% if @silver.setimage %>
+        <%= link_to cl_image_tag(@silver.image, width:"35"), user_path(@silver.id) %>
+    <% else %>
+        <%= link_to image_tag(@silver.image, width:"35"), user_path(@silver.id) %>
+    <% end %>
+    <%= link_to '@' + @silver.username, user_path(@silver)%>
+    <%= link_to '♡' + @silver.reviews.select(:like_count).map(&:like_count).sum.to_s, user_path(@silver) %>
+    <% if @bronze.setimage %>
+        <%= link_to cl_image_tag(@bronze.image, width:"35"), user_path(@bronze.id) %>
+    <% else %>
+        <%= link_to image_tag(@bronze.image, width:"35"), user_path(@bronze.id) %>
+    <% end %>
+    <%= link_to '@' + @bronze.username, user_path(@bronze)%>
+    <%= link_to '♡' + @bronze.reviews.select(:like_count).map(&:like_count).sum.to_s, user_path(@bronze) %>
 </div>
+
+
+
+</div>
+
+
+<%# 
+users_likes = []
+
+Like.all.each {|e| users_likes.push(e.review.user_id)}
+
+freq = users_likes.inject(Hash.new(0)) {|h,v| h[v] += 1; h}.sort{|a, b| a[1] <=> b[1]}.reverse
+                                                                             <=> <-- spaceship 
+num1_user = User.find_by id:freq[0][0]
+num2_user = User.find_by id:freq[1][0]
+num3_user = User.find_by id:freq[2][0]
+
+top_user = users_likes.max_by {|v| freq[v]}
+
+User.find_by id:top_user
+
+counter = 3
+unless counter == 0 
+    users_likes.delete(top_user) <--- this is a bad idea. you should keep the array 
+    counter -= 1
+end
+
+
+ %>

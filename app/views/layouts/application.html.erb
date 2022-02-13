@@ -22,18 +22,25 @@
           <%= link_to "Re:view-r", home_path %>
         </h1>
 
-        <div class="searchquery">
-            <button class="search-show">^</button>
+        <ul class="searchquery dropdown">
+            <button class="search-show">sort feed</button>
               <div class="search-select">
-                <%= button_to "All", home_all_path, class:"userfeed" %>
-                <%= button_to "Popular", home_popular_path %>
+               <li class="dropdown-item">
+                <%= link_to "For you", home_path %>
+                </li>
+               <li class="dropdown-item">
+                <%= link_to "All", home_all_path %>
+                </li>
+                 <li class="dropdown-item">
+                <%= link_to "Popular", home_popular_path %>
+                </li>
               </div>
-        </div>
+        </ul>
 
         <%= form_with model: @user, local:true do |f| %>
           <div class="search-user">
             <%= f.text_field :search, placeholder:"search for a user"%>
-            <%= f.submit '⌕' %>
+            <%= f.submit '⌕', class:"⌕"%>
           </div>
         <% end %>
 

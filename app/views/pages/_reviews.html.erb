@@ -46,9 +46,9 @@
                 <% if pre_like %>
                 <!-- SET UP jQuery onClick for both and handle the like action through there (?) 
                 both a form and tell it to submit on click so it's submitting itself without another button, then add svg like button!-->
-                    <%= check_box '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn", checked:"checked" %>
+                    <%= button_to '❤️', review_like_path(r.id, pre_like), method: :delete, class:"likebtn", checked:"checked" %>
                 <% else %>
-                    <%= check_box '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
+                    <%= button_to '🤍', review_likes_path(r.id), method: :post, class:"likebtn"%>
                 <% end %>
                 <p>
                     <%= r.likes.count %> 

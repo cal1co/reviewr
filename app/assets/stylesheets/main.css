@@ -138,14 +138,18 @@ p{
 
 }
 .navbar{
-    overflow:hidden;
+    /* overflow:hidden; */
     padding:0px;
     width:100%;
     position:fixed;
     top:0;
-    z-index:9999;
+    z-index:1;
     margin-bottom:50px;
 }
+.navbar nav{
+    list-style-type: none;
+}
+
 
 .home-page{
     height:100vh;
@@ -328,7 +332,7 @@ textarea::-webkit-scrollbar {
     padding-left:7px;
 }
 .article-title > input:hover, .input > textarea:hover, .search-user > input:hover{
-    border:1.5px solid #d7dadc;
+    outline:1.5px solid #d7dadc;
 }
 .review-image{ grid-area:review-image;}
 .input{ grid-area:input; margin-left:25px; width:375px;}
@@ -397,19 +401,50 @@ textarea::-webkit-scrollbar {
     align-content:center;
     height:28px;
     margin-top:12px;
-    margin-left:30px;
+    margin-left:16px;
     border:none;
     border-radius:12px;
+    z-index:1;
+    border: 1px solid #343536;
+    background: #272729;
+    color:white;
 }
 .searchquery:hover > button{
-    background:#d7dadc
+    /* background:#d7dadc; */
+    outline: 1.5px solid #d7dadc;
+}
+
+
+
+.dropdown{
+    z-index:2;
 }
 
 .search-select{
-    display:none;
+    /* display:none; */
+    position:absolute;
+    opacity: 0;
+    background: black;
+    border: 1px solid #343536;
+    border-radius:10px;
+    margin-left:16px;
+
 }
 .searchquery:hover .search-select{
-    display:inline-block;
+    display:block;
+    opacity:1;
+}
+
+.dropdown-item{
+    position: relative;
+    background: #1a1a1b;
+}
+.dropdown-item:hover{
+    background: #272729;
+    outline: 1px solid #343536;
+}
+.dropdown-item > a:hover{
+    color: #d7dadc;
 }
 
 
@@ -556,4 +591,8 @@ a{
 }
 .followshow:hover {
     background:#d7dadc
+}
+.⌕{
+    display:flex;
+    align-items:center;
 }
