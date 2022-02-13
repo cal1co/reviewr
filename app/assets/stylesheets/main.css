@@ -135,8 +135,12 @@ p{
     width: 707px;
     border-left: 2px solid #2f3336;
     border-right: 2px solid #2f3336;
-
 }
+.profile-head::after{
+    content:"";
+    height:90%;
+}
+
 .navbar{
     /* overflow:hidden; */
     padding:0px;
@@ -189,7 +193,7 @@ p{
 
 .scoreboard{
     position:absolute;
-    top:9.2%;
+    top:8.2%;
     left:80%;
     transform:translateX(-50%);
     color:white;
@@ -204,6 +208,7 @@ p{
 }
 .scoreboard *{
     margin-left:5px;
+    margin-top:5px;
 }
 .scoreboard > h3{
     font-family: Noto Sans,Arial,sans-serif;
@@ -230,7 +235,9 @@ p{
     position:relative;
     padding-left:15px;
     width:627px;
-    margin:auto;
+    left:42%;
+    transform: translateX(-50%);
+    /* margin:auto; */
     margin-bottom:10px;
     display:grid;
     justify-content: center;
@@ -318,9 +325,12 @@ textarea::-webkit-scrollbar {
     display:grid;
     background:#1a1a1b;
     border-radius:10px;
+    position:relative;
     /* justify-content: center; */
     border:2px solid white;
-    margin:auto;
+    /* margin:auto; */
+    left:42%;
+    transform:translateX(-50%);
     margin-top:80px;
     margin-bottom:25px;
     width:627px;
@@ -507,10 +517,7 @@ p{
     margin-bottom:0;
 }
 
-.usercont{
-    border-left: none;
-    border-right: none;
-}
+
 
 .circle{
     /* border:5px solid red; */
@@ -587,8 +594,17 @@ a{
         transform: translateX(-50%);
         justify-content: center;
     }
+    
 }
 
+@media only screen and (max-width:1310px){
+    .scoreboard{
+        display:none;
+    }
+    .reviewblock, .review-form{
+        left:50%;
+    }
+}
 .likebtn{
     background:transparent;
     border:none;
@@ -624,4 +640,9 @@ a{
 
 .rank:hover{
     background: #272729;
+}
+.usercont{
+    border-left: none;
+    border-right: none;
+    left:50%;
 }

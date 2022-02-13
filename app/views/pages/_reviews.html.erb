@@ -78,4 +78,39 @@
 
         </div>
     <% end %> <%# reviews.each %>
+
+
+    <div class="scoreboard">
+        <h3>Top Users:</h3>
+        <div class="gold rank">
+            <%= link_to '♡' + @gold.reviews.select(:like_count).map(&:like_count).sum.to_s, user_path(@gold) %>
+            <% if @gold.setimage %> 
+                <%= link_to cl_image_tag(@gold.image, width:"35"), user_path(@gold.id) %>
+            <% else %>
+                <%= link_to image_tag(@gold.image, width:"35"), user_path(@gold.id) %>
+            <% end %>
+            <%= link_to '@' + @gold.username, user_path(@gold)%>
+        </div>
+        <div class="silver rank">
+            <%= link_to '♡' + @silver.reviews.select(:like_count).map(&:like_count).sum.to_s, user_path(@silver) %>
+            <% if @silver.setimage %>
+                <%= link_to cl_image_tag(@silver.image, width:"35"), user_path(@silver.id) %>
+            <% else %>
+                <%= link_to image_tag(@silver.image, width:"35"), user_path(@silver.id) %>
+            <% end %>
+            <%= link_to '@' + @silver.username, user_path(@silver)%>
+        </div>
+        <div class="bronze rank"> 
+            <%= link_to '♡' + @bronze.reviews.select(:like_count).map(&:like_count).sum.to_s, user_path(@bronze) %>
+            <% if @bronze.setimage %>
+                <%= link_to cl_image_tag(@bronze.image, width:"35"), user_path(@bronze.id) %>
+            <% else %>
+                <%= link_to image_tag(@bronze.image, width:"35"), user_path(@bronze.id) %>
+            <% end %>
+            <%= link_to '@' + @bronze.username, user_path(@bronze)%>
+
+        </div>
+
+    </div>
+
 </div> <%# all-posts %>

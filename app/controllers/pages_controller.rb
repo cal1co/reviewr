@@ -8,14 +8,7 @@ class PagesController < ApplicationController
         @users = User.all
         @review = Review.new
 
-        users_likes = []
-        Like.all.each {|e| users_likes.push(e.review.user_id)}
-        freq = users_likes.inject(Hash.new(0)) {|h,v| h[v] += 1; h}.sort{|a, b| a[1] <=> b[1]}.reverse
-
-        @gold = User.find_by id:freq[0][0]
-        @silver = User.find_by id:freq[1][0]
-        @bronze = User.find_by id:freq[2][0]
-
+        find_top_users
     end # home()
 
     def new
@@ -41,10 +34,24 @@ class PagesController < ApplicationController
 
     def feed
         @reviews = Review.order(created_at: :desc)
+
+        find_top_users
     end # feed()
 
     def popular
         @reviews = Review.order(like_count: :desc)
+
+        find_top_users
     end # popular()
+
+    def find_top_users
+        users_likes = []
+        Like.all.each {|e| users_likes.push(e.review.user_id)}
+        freq = users_likes.inject(Hash.new(0)) {|h,v| h[v] += 1; h}.sort{|a, b| a[1] <=> b[1]}.reverse
+
+        @gold = User.find_by id:freq[0][0]
+        @silver = User.find_by id:freq[1][0]
+        @bronze = User.find_by id:freq[2][0]
+    end
 
 end # PagesController
