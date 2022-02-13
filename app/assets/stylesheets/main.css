@@ -645,4 +645,9 @@ a{
     border-left: none;
     border-right: none;
     left:50%;
+    border-radius:0;
+}
+.comment-show{
+    left:50%;
+    transform:translateX(-50%);
 }
