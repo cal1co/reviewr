@@ -6,7 +6,6 @@
 
 
 ## About this project:
-Completed as project 1 for General Assembly class SEI-50
 
 This project is an attempt at a simple social media platform like Twitter or Reddit. This project took far longer to implement seemingly simple features in comparison to my previous project, however, the final product consists of far few bugs and unintended features. The countless files and folders became quite overwhelming by the end which really negatively affected my ability to implement the final planned features. 
 
