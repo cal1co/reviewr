@@ -1,6 +1,6 @@
 # README
 
-# Simple Twitter Clone (WIP)
+# REVIEWR SOCIAL NETWORK SERVICE: 1 WEEK CHALLENGE
 
 ## MY SITE: https://cryptic-citadel-69958.herokuapp.com/users/new
 
@@ -43,11 +43,7 @@ This project is an attempt at a simple social media platform like Twitter or Red
 
 
 ## Summary:
-The main bulk of this project was done in one night (post creation and lists). As I added things, my momentum (focus) continually dropped until I could barely do anything without help (ty, Ro!). I made sure to fix all the bugs I had and triple checked every feature before moving on to the next one, so my final product is a lot more functional than my last one. I really regret not styling my pages earlier... they're so ugly!  
-
-
-## Special Thanks:
-Special thanks to Rowena. Even though I only asked for help later on, her assistance saved me hours of time and helped me to avoid a lot of additional errors. I really appreciate the help and wouldn't have been able to include some core features (or get to sleep early) without her. tysm! 
+The main bulk of this project was done in one night (post creation and lists). As I added things, my momentum (focus) continually dropped until I could barely do anything without help. I made sure to fix all the bugs I had and triple checked every feature before moving on to the next one, so my final product is a lot more functional than my last one. I really regret not styling my pages earlier... they're so ugly!  
 
 
 # reviewr
