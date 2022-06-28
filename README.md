@@ -1,6 +1,6 @@
 # README
 
-# REVIEWR SOCIAL NETWORK SERVICE: 1 WEEK CHALLENGE
+# REVIEWR SOCIAL NETWORK SERVICE
 
 ## MY SITE: https://cryptic-citadel-69958.herokuapp.com/users/new
 
